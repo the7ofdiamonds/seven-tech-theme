@@ -1,0 +1,2174 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@media screen and (min-width: 375px) {
+  :root {
+    font-size: 20px;
+  }
+}
+h1,
+h2,
+h3 {
+  letter-spacing: 0.5rem;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+strong {
+  letter-spacing: 0.1rem;
+}
+
+strong {
+  font-weight: 550;
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 750px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  :root {
+    font-size: 20px;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100%;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+header {
+  grid-area: Menu;
+  width: 100vw;
+}
+header nav {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 50px 1fr 50px;
+  width: 100%;
+  grid-template-areas: "LeftSide Center RightSide" ". Links .";
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+header nav .leftSide {
+  grid-area: LeftSide;
+}
+header nav .leftSide .leftSpace {
+  cursor: none;
+}
+header nav .leftSide .leftSpace span.bar {
+  display: block;
+  width: 1.5rem;
+  height: 0.15rem;
+  margin: 0.25rem auto;
+  background: none;
+}
+header nav .leftSide .left-menu {
+  display: none;
+}
+header nav .center {
+  grid-area: Center;
+  display: flex;
+  flex-direction: column;
+}
+header nav .center .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav .center .logo h1 a img {
+  width: 100%;
+  min-height: 2.5rem;
+  margin-top: 0.25rem;
+}
+header nav .center .dropdown {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  -webkit-animation-name: dropdown;
+          animation-name: dropdown;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  transition-property: opacity;
+}
+header nav .center .dropdown.is-active {
+  display: flex;
+  opacity: 1;
+}
+header nav .center .dropdown ul.menu {
+  overflow-wrap: normal;
+  width: 100%;
+}
+header nav .center .dropdown ul.menu li {
+  width: 100%;
+  margin: 1rem 0;
+  list-style: none;
+  text-align: center;
+}
+header nav a {
+  text-decoration: none;
+  list-style: none;
+}
+header nav .rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav .rightSide .hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header nav .rightSide .hamburger h2 {
+  transform: rotate(90deg);
+  margin: 0;
+  line-height: 1rem;
+  letter-spacing: 0;
+  transition: all 1s ease-in-out;
+}
+header nav .rightSide .hamburger h2.top.is-active {
+  transform: rotate(45deg);
+  position: absolute;
+  transition: all 1s ease-in-out;
+}
+header nav .rightSide .hamburger h2.middle.not-active {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+header nav .rightSide .hamburger h2.bottom.is-active {
+  transform: rotate(-45deg);
+  position: absolute;
+  transition: all 1s ease-in-out;
+}
+header nav .rightSide .hamburger .toggle:hover {
+  border-radius: 4px;
+  padding: 0.5rem;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+header nav .rightSide .right-menu {
+  display: none;
+}
+header img {
+  height: 100%;
+}
+
+@-webkit-keyframes dropdown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dropdown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hamburger {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hamburger {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header nav {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  header nav #leftSpace {
+    display: none;
+  }
+  header nav .top-menu {
+    display: none;
+  }
+  header nav .top-menu.active {
+    display: none;
+  }
+  header nav #toggle {
+    display: none;
+  }
+  header nav .leftSide {
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+  }
+  header nav .leftSide .left-menu {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  header nav .leftSide .left-menu ul.menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  header nav .leftSide .left-menu ul.menu li {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+  }
+  header nav .leftSide .left-menu ul.menu li a {
+    margin: 1rem;
+  }
+  header nav .rightSide {
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+  }
+  header nav .rightSide .right-menu {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  header nav .rightSide .right-menu ul.menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  header nav .rightSide .right-menu ul.menu li {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+  }
+  header nav .rightSide .right-menu ul.menu li a {
+    margin: 1rem;
+  }
+}
+button {
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+}
+
+section {
+  grid-area: Section;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 5rem 1rem 0;
+}
+
+.card {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.comments-area {
+  margin-top: 2rem;
+}
+.comments-area a,
+.comments-area b {
+  color: black;
+}
+.comments-area .comments-list .comment {
+  list-style: none;
+}
+.comments-area .comments-list .comment .comment-body {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  transition: 0.2s;
+  margin: 1rem auto;
+  max-width: 50rem;
+}
+.comments-area .comments-list .comment .reply {
+  border: 1px solid;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: black;
+  padding: 0.5rem;
+  margin: 1rem auto 0;
+}
+.comments-area .comments-list .comment .reply a {
+  color: white;
+  font-size: 1.5rem;
+}
+.comments-area .comments-list .comment-meta {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.comments-area .comments-list .comment-meta .comment-author {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.comments-area .comments-list .comment-content {
+  text-align: left;
+}
+.comments-area .comments-list .comment-content p {
+  margin: 0;
+}
+.comments-area .comment-respond {
+  margin-top: 2rem;
+}
+.comments-area .comment-respond h3 {
+  letter-spacing: 0;
+}
+.comments-area .comment-respond .must-log-in {
+  text-align: center;
+}
+.comments-area .comment-respond .comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comments-area .comment-respond .comment-form label {
+  font-size: 1.5rem;
+}
+.comments-area .comment-respond .comment-form input {
+  height: 2rem;
+}
+.comments-area .comment-respond .comment-form .comment-form-comment textarea {
+  margin: 0 auto;
+  width: 100%;
+}
+.comments-area .comment-respond .comment-form .comment-form-cookies-consent input {
+  height: 0.8rem;
+}
+.comments-area .comment-respond .comment-form .form-submit .submit {
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+/* Front Page */
+/* End Front Page */
+.hero {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  height: 100vh;
+}
+.hero .card {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.hero p {
+  margin: 1rem;
+}
+
+section.about .card p a {
+  color: black;
+  cursor: pointer;
+}
+
+section.service {
+  row-gap: 2rem;
+}
+section.service .card {
+  min-width: 350px;
+}
+section.service .service-name {
+  grid-area: Name;
+}
+section.service .service-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.service .service-gallery .wp-block-image {
+  display: none;
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+section.service .service-gallery .wp-block-image--selected {
+  display: flex;
+}
+section.service .service-gallery .imageSelector {
+  display: none;
+}
+section.service .service-gallery .imageSelector .leftArrow {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 10%;
+  background-color: black;
+  opacity: 60%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.service .service-gallery .imageSelector .leftArrow .arrow {
+  font-size: 2rem;
+  transform: rotate(90deg);
+}
+section.service .service-gallery .imageSelector .rightArrow {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 10%;
+  background-color: black;
+  opacity: 60%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.service .service-gallery .imageSelector .rightArrow .arrow {
+  font-size: 2rem;
+  transform: rotate(-90deg);
+}
+section.service .service-gallery .selector--selected {
+  display: block;
+}
+section.service .service-description {
+  grid-area: Description;
+}
+section.service .service-features {
+  grid-area: Features;
+}
+section.service .service-features .feature-selection table thead td.features {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+section.service .service-features .feature-selection table tbody td {
+  font-weight: 700;
+}
+section.service .service-features .feature-selection table tfoot tr th {
+  text-align: right;
+}
+
+.invoice {
+  display: none;
+}
+.invoice.active {
+  display: flex;
+}
+
+.schedule {
+  display: none;
+}
+.schedule.active {
+  display: flex;
+}
+
+.payment {
+  display: none;
+}
+.payment.active {
+  display: flex;
+}
+
+.receipt {
+  display: none;
+}
+.receipt.active {
+  display: flex;
+}
+
+section.services .service-list {
+  display: grid;
+  row-gap: 2rem;
+}
+section.services .service-list .service-card {
+  display: grid;
+  grid-template-areas: "Name" "Icon" "Description" "Features" "Action";
+  grid-template-rows: 1.75rem 3.75rem auto 5rem 4rem;
+  row-gap: 1rem;
+  min-width: 350px;
+}
+section.services .service-list .service-card .service-name {
+  grid-area: Name;
+}
+section.services .service-list .service-card .service-icon {
+  grid-area: Icon;
+}
+section.services .service-list .service-card .service-icon img {
+  width: 3rem;
+  height: 3rem;
+  margin: auto;
+}
+section.services .service-list .service-card .service-description {
+  grid-area: Description;
+  font-weight: 700;
+}
+section.services .service-list .service-card .service-features {
+  grid-area: Features;
+}
+section.services .service-list .service-card .service-features ul.feature-list li.feature {
+  list-style: none;
+  line-height: 1.5rem;
+}
+section.services .service-list .service-card .service-action {
+  grid-area: Action;
+  width: 100%;
+}
+
+@media screen and (min-width: 1150px) {
+  section.services .service-list {
+    grid-template-columns: repeat(3, 1fr);
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  .card:hover {
+    transform: translateY(-1rem);
+  }
+}
+section.portfolio .project-list {
+  display: grid;
+  row-gap: 2rem;
+}
+section.portfolio .project-list .project-card {
+  min-width: 350px;
+}
+section.portfolio .project-list .project-card .project-name {
+  margin-bottom: 1rem;
+}
+section.portfolio .project-list .project-card .project-featured-image {
+  margin: 0;
+}
+section.portfolio .project-list .project-card .project-featured-image img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+section.portfolio .project-list .project-card .project-type {
+  margin: 0.5rem;
+}
+section.portfolio .project-list .project-card .project-type p {
+  margin: 0;
+  font-weight: 700;
+}
+section.portfolio .project-list .project-card .project-description-short {
+  margin: 0.5rem 0;
+}
+section.portfolio .project-list .project-card .project-description-short p {
+  margin: 0;
+}
+section.portfolio .project-list .project-card .project-action {
+  margin-top: 0.5rem 0 1rem;
+}
+
+section.project .card {
+  margin: 1rem auto;
+  width: 90%;
+}
+section.project .project-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.project .project-gallery .wp-block-image {
+  display: none;
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+section.project .project-gallery .wp-block-image--selected {
+  display: flex;
+}
+section.project .project-gallery .imageSelector {
+  display: none;
+}
+section.project .project-gallery .imageSelector .leftArrow {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 10%;
+  background-color: black;
+  opacity: 60%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.project .project-gallery .imageSelector .leftArrow .arrow {
+  font-size: 2rem;
+  transform: rotate(90deg);
+}
+section.project .project-gallery .imageSelector .rightArrow {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 10%;
+  background-color: black;
+  opacity: 60%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.project .project-gallery .imageSelector .rightArrow .arrow {
+  font-size: 2rem;
+  transform: rotate(-90deg);
+}
+section.project .project-gallery .selector--selected {
+  display: block;
+}
+section.project .project-type .card p {
+  margin: 0;
+  font-weight: 700;
+}
+section.project .project-description {
+  margin: 0.5rem 0;
+}
+section.project .project-description p {
+  margin: 0;
+}
+
+p {
+  line-height: 2rem;
+  margin: 1rem 0;
+}
+
+p.legal {
+  font-size: 10px;
+}
+
+p.question {
+  padding: 1rem 1rem 0.5rem 1rem !important;
+}
+
+p.answer {
+  padding: 0.5rem 1rem 1rem 1rem !important;
+}
+
+section.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+section.contact .card {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90%;
+}
+section.contact .card form label {
+  display: block;
+  text-align: left;
+  font-size: 0.75rem;
+  margin: 0.25em 0;
+}
+section.contact .card form input {
+  border-color: black;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+section.contact .card form textarea {
+  border-color: black;
+  width: 100%;
+  min-height: 6rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+section.contact .card p {
+  font-size: 0.75rem;
+  margin: 0.5em 0 0.5em 0;
+}
+section.contact .card p a {
+  color: black;
+  cursor: pointer;
+}
+section.contact .card p a:hover {
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 700px) {
+  .contact .card {
+    max-width: 600px;
+  }
+}
+.login {
+  margin-top: 0;
+  justify-content: center;
+}
+.login .signin-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  background-color: transparent;
+  width: 100%;
+}
+.login .signin-options .apple,
+.login .signin-options .google,
+.login .signin-options .microsoft {
+  display: grid;
+  grid-template-columns: 3rem 15rem;
+  padding: 0.5rem;
+  text-align: center;
+  align-items: center;
+  height: 3rem;
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+.login .signin-options .apple img,
+.login .signin-options .google img,
+.login .signin-options .microsoft img {
+  height: 2rem;
+  width: 2rem;
+  justify-self: flex-start;
+}
+.login .signin-options .apple h3,
+.login .signin-options .google h3,
+.login .signin-options .microsoft h3 {
+  letter-spacing: 0;
+  justify-self: flex-start;
+}
+
+footer {
+  width: 100vw;
+}
+footer .footerNav {
+  padding: 1rem;
+}
+footer .footerNav ul li {
+  list-style: none;
+}
+footer .footerNav .footer-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  overflow: hidden;
+}
+footer .footerNav .footer-bar li a {
+  text-decoration: none;
+}
+footer .bottom .mat-snack-bar-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  width: 100vw;
+}
+footer .bottom .mat-snack-bar-container a img {
+  width: auto;
+  height: 1.75rem;
+}
+footer p {
+  margin: 0.5rem;
+}
+footer p.legal {
+  text-align: center;
+}
+
+.quote {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0;
+}
+.quote form.feature-selection table.feature-selection-total .checkbox {
+  padding: 0;
+}
+.quote form.feature-selection table.feature-selection-total th {
+  padding: 0.5rem;
+}
+.quote form.feature-selection table.feature-selection-total td.cost {
+  padding: 0 0.5rem 0 0;
+}
+
+.invoice {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  width: 100%;
+}
+.invoice .invoice-card {
+  padding: 0;
+}
+.invoice .invoice-card table.invoice-service-grandtotal th,
+.invoice .invoice-card table.invoice-service-grandtotal td {
+  padding: 0.5rem;
+}
+.invoice .logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+.invoice .invoice-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.invoice .invoice-header h4.invoice-date {
+  margin: 0 1rem 0 0;
+}
+.invoice .invoice-header h4.invoice-type {
+  margin: 0 0 0 1rem;
+}
+.invoice .invoice-service-grandtotal .invoice-service-footer tr th {
+  text-align: right;
+}
+.invoice .schedule-button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.html2canvas-container {
+  width: 3000px;
+  height: 3000px;
+}
+
+.support .support-card h4 {
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.login,
+.signup,
+.reset {
+  margin-top: 0;
+  justify-content: center;
+}
+.login .signInOptions,
+.signup .signInOptions,
+.reset .signInOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem;
+}
+.login .signInOptions button,
+.signup .signInOptions button,
+.reset .signInOptions button {
+  margin: 0;
+}
+.login .registration,
+.login .signin,
+.login #signin,
+.login .reset,
+.signup .registration,
+.signup .signin,
+.signup #signin,
+.signup .reset,
+.reset .registration,
+.reset .signin,
+.reset #signin,
+.reset .reset {
+  min-width: 20rem;
+}
+.login .registration p,
+.login .signin p,
+.login #signin p,
+.login .reset p,
+.signup .registration p,
+.signup .signin p,
+.signup #signin p,
+.signup .reset p,
+.reset .registration p,
+.reset .signin p,
+.reset #signin p,
+.reset .reset p {
+  text-align: left;
+  line-height: 0;
+  margin: 0 0 1rem;
+}
+.login .registration p.error,
+.login .signin p.error,
+.login #signin p.error,
+.login .reset p.error,
+.signup .registration p.error,
+.signup .signin p.error,
+.signup #signin p.error,
+.signup .reset p.error,
+.reset .registration p.error,
+.reset .signin p.error,
+.reset #signin p.error,
+.reset .reset p.error {
+  color: #e74c3c;
+}
+.login .registration p.success,
+.login .signin p.success,
+.login #signin p.success,
+.login .reset p.success,
+.signup .registration p.success,
+.signup .signin p.success,
+.signup #signin p.success,
+.signup .reset p.success,
+.reset .registration p.success,
+.reset .signin p.success,
+.reset #signin p.success,
+.reset .reset p.success {
+  color: #2ecc71;
+}
+.login .registration .email,
+.login .registration .username,
+.login .registration .password,
+.login .registration .confirm-password,
+.login .signin .email,
+.login .signin .username,
+.login .signin .password,
+.login .signin .confirm-password,
+.login #signin .email,
+.login #signin .username,
+.login #signin .password,
+.login #signin .confirm-password,
+.login .reset .email,
+.login .reset .username,
+.login .reset .password,
+.login .reset .confirm-password,
+.signup .registration .email,
+.signup .registration .username,
+.signup .registration .password,
+.signup .registration .confirm-password,
+.signup .signin .email,
+.signup .signin .username,
+.signup .signin .password,
+.signup .signin .confirm-password,
+.signup #signin .email,
+.signup #signin .username,
+.signup #signin .password,
+.signup #signin .confirm-password,
+.signup .reset .email,
+.signup .reset .username,
+.signup .reset .password,
+.signup .reset .confirm-password,
+.reset .registration .email,
+.reset .registration .username,
+.reset .registration .password,
+.reset .registration .confirm-password,
+.reset .signin .email,
+.reset .signin .username,
+.reset .signin .password,
+.reset .signin .confirm-password,
+.reset #signin .email,
+.reset #signin .username,
+.reset #signin .password,
+.reset #signin .confirm-password,
+.reset .reset .email,
+.reset .reset .username,
+.reset .reset .password,
+.reset .reset .confirm-password {
+  position: relative;
+}
+.login .registration .email.success input,
+.login .registration .username.success input,
+.login .registration .password.success input,
+.login .registration .confirm-password.success input,
+.login .signin .email.success input,
+.login .signin .username.success input,
+.login .signin .password.success input,
+.login .signin .confirm-password.success input,
+.login #signin .email.success input,
+.login #signin .username.success input,
+.login #signin .password.success input,
+.login #signin .confirm-password.success input,
+.login .reset .email.success input,
+.login .reset .username.success input,
+.login .reset .password.success input,
+.login .reset .confirm-password.success input,
+.signup .registration .email.success input,
+.signup .registration .username.success input,
+.signup .registration .password.success input,
+.signup .registration .confirm-password.success input,
+.signup .signin .email.success input,
+.signup .signin .username.success input,
+.signup .signin .password.success input,
+.signup .signin .confirm-password.success input,
+.signup #signin .email.success input,
+.signup #signin .username.success input,
+.signup #signin .password.success input,
+.signup #signin .confirm-password.success input,
+.signup .reset .email.success input,
+.signup .reset .username.success input,
+.signup .reset .password.success input,
+.signup .reset .confirm-password.success input,
+.reset .registration .email.success input,
+.reset .registration .username.success input,
+.reset .registration .password.success input,
+.reset .registration .confirm-password.success input,
+.reset .signin .email.success input,
+.reset .signin .username.success input,
+.reset .signin .password.success input,
+.reset .signin .confirm-password.success input,
+.reset #signin .email.success input,
+.reset #signin .username.success input,
+.reset #signin .password.success input,
+.reset #signin .confirm-password.success input,
+.reset .reset .email.success input,
+.reset .reset .username.success input,
+.reset .reset .password.success input,
+.reset .reset .confirm-password.success input {
+  border-color: #2ecc71;
+}
+.login .registration .email.success i.fa-check-circle,
+.login .registration .username.success i.fa-check-circle,
+.login .registration .password.success i.fa-check-circle,
+.login .registration .confirm-password.success i.fa-check-circle,
+.login .signin .email.success i.fa-check-circle,
+.login .signin .username.success i.fa-check-circle,
+.login .signin .password.success i.fa-check-circle,
+.login .signin .confirm-password.success i.fa-check-circle,
+.login #signin .email.success i.fa-check-circle,
+.login #signin .username.success i.fa-check-circle,
+.login #signin .password.success i.fa-check-circle,
+.login #signin .confirm-password.success i.fa-check-circle,
+.login .reset .email.success i.fa-check-circle,
+.login .reset .username.success i.fa-check-circle,
+.login .reset .password.success i.fa-check-circle,
+.login .reset .confirm-password.success i.fa-check-circle,
+.signup .registration .email.success i.fa-check-circle,
+.signup .registration .username.success i.fa-check-circle,
+.signup .registration .password.success i.fa-check-circle,
+.signup .registration .confirm-password.success i.fa-check-circle,
+.signup .signin .email.success i.fa-check-circle,
+.signup .signin .username.success i.fa-check-circle,
+.signup .signin .password.success i.fa-check-circle,
+.signup .signin .confirm-password.success i.fa-check-circle,
+.signup #signin .email.success i.fa-check-circle,
+.signup #signin .username.success i.fa-check-circle,
+.signup #signin .password.success i.fa-check-circle,
+.signup #signin .confirm-password.success i.fa-check-circle,
+.signup .reset .email.success i.fa-check-circle,
+.signup .reset .username.success i.fa-check-circle,
+.signup .reset .password.success i.fa-check-circle,
+.signup .reset .confirm-password.success i.fa-check-circle,
+.reset .registration .email.success i.fa-check-circle,
+.reset .registration .username.success i.fa-check-circle,
+.reset .registration .password.success i.fa-check-circle,
+.reset .registration .confirm-password.success i.fa-check-circle,
+.reset .signin .email.success i.fa-check-circle,
+.reset .signin .username.success i.fa-check-circle,
+.reset .signin .password.success i.fa-check-circle,
+.reset .signin .confirm-password.success i.fa-check-circle,
+.reset #signin .email.success i.fa-check-circle,
+.reset #signin .username.success i.fa-check-circle,
+.reset #signin .password.success i.fa-check-circle,
+.reset #signin .confirm-password.success i.fa-check-circle,
+.reset .reset .email.success i.fa-check-circle,
+.reset .reset .username.success i.fa-check-circle,
+.reset .reset .password.success i.fa-check-circle,
+.reset .reset .confirm-password.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+.login .registration .email.error p,
+.login .registration .username.error p,
+.login .registration .password.error p,
+.login .registration .confirm-password.error p,
+.login .signin .email.error p,
+.login .signin .username.error p,
+.login .signin .password.error p,
+.login .signin .confirm-password.error p,
+.login #signin .email.error p,
+.login #signin .username.error p,
+.login #signin .password.error p,
+.login #signin .confirm-password.error p,
+.login .reset .email.error p,
+.login .reset .username.error p,
+.login .reset .password.error p,
+.login .reset .confirm-password.error p,
+.signup .registration .email.error p,
+.signup .registration .username.error p,
+.signup .registration .password.error p,
+.signup .registration .confirm-password.error p,
+.signup .signin .email.error p,
+.signup .signin .username.error p,
+.signup .signin .password.error p,
+.signup .signin .confirm-password.error p,
+.signup #signin .email.error p,
+.signup #signin .username.error p,
+.signup #signin .password.error p,
+.signup #signin .confirm-password.error p,
+.signup .reset .email.error p,
+.signup .reset .username.error p,
+.signup .reset .password.error p,
+.signup .reset .confirm-password.error p,
+.reset .registration .email.error p,
+.reset .registration .username.error p,
+.reset .registration .password.error p,
+.reset .registration .confirm-password.error p,
+.reset .signin .email.error p,
+.reset .signin .username.error p,
+.reset .signin .password.error p,
+.reset .signin .confirm-password.error p,
+.reset #signin .email.error p,
+.reset #signin .username.error p,
+.reset #signin .password.error p,
+.reset #signin .confirm-password.error p,
+.reset .reset .email.error p,
+.reset .reset .username.error p,
+.reset .reset .password.error p,
+.reset .reset .confirm-password.error p {
+  color: #e74c3c;
+}
+.login .registration .email.error input,
+.login .registration .username.error input,
+.login .registration .password.error input,
+.login .registration .confirm-password.error input,
+.login .signin .email.error input,
+.login .signin .username.error input,
+.login .signin .password.error input,
+.login .signin .confirm-password.error input,
+.login #signin .email.error input,
+.login #signin .username.error input,
+.login #signin .password.error input,
+.login #signin .confirm-password.error input,
+.login .reset .email.error input,
+.login .reset .username.error input,
+.login .reset .password.error input,
+.login .reset .confirm-password.error input,
+.signup .registration .email.error input,
+.signup .registration .username.error input,
+.signup .registration .password.error input,
+.signup .registration .confirm-password.error input,
+.signup .signin .email.error input,
+.signup .signin .username.error input,
+.signup .signin .password.error input,
+.signup .signin .confirm-password.error input,
+.signup #signin .email.error input,
+.signup #signin .username.error input,
+.signup #signin .password.error input,
+.signup #signin .confirm-password.error input,
+.signup .reset .email.error input,
+.signup .reset .username.error input,
+.signup .reset .password.error input,
+.signup .reset .confirm-password.error input,
+.reset .registration .email.error input,
+.reset .registration .username.error input,
+.reset .registration .password.error input,
+.reset .registration .confirm-password.error input,
+.reset .signin .email.error input,
+.reset .signin .username.error input,
+.reset .signin .password.error input,
+.reset .signin .confirm-password.error input,
+.reset #signin .email.error input,
+.reset #signin .username.error input,
+.reset #signin .password.error input,
+.reset #signin .confirm-password.error input,
+.reset .reset .email.error input,
+.reset .reset .username.error input,
+.reset .reset .password.error input,
+.reset .reset .confirm-password.error input {
+  border-color: #e74c3c;
+}
+.login .registration .email.error i.fa-exclamation-circle,
+.login .registration .username.error i.fa-exclamation-circle,
+.login .registration .password.error i.fa-exclamation-circle,
+.login .registration .confirm-password.error i.fa-exclamation-circle,
+.login .signin .email.error i.fa-exclamation-circle,
+.login .signin .username.error i.fa-exclamation-circle,
+.login .signin .password.error i.fa-exclamation-circle,
+.login .signin .confirm-password.error i.fa-exclamation-circle,
+.login #signin .email.error i.fa-exclamation-circle,
+.login #signin .username.error i.fa-exclamation-circle,
+.login #signin .password.error i.fa-exclamation-circle,
+.login #signin .confirm-password.error i.fa-exclamation-circle,
+.login .reset .email.error i.fa-exclamation-circle,
+.login .reset .username.error i.fa-exclamation-circle,
+.login .reset .password.error i.fa-exclamation-circle,
+.login .reset .confirm-password.error i.fa-exclamation-circle,
+.signup .registration .email.error i.fa-exclamation-circle,
+.signup .registration .username.error i.fa-exclamation-circle,
+.signup .registration .password.error i.fa-exclamation-circle,
+.signup .registration .confirm-password.error i.fa-exclamation-circle,
+.signup .signin .email.error i.fa-exclamation-circle,
+.signup .signin .username.error i.fa-exclamation-circle,
+.signup .signin .password.error i.fa-exclamation-circle,
+.signup .signin .confirm-password.error i.fa-exclamation-circle,
+.signup #signin .email.error i.fa-exclamation-circle,
+.signup #signin .username.error i.fa-exclamation-circle,
+.signup #signin .password.error i.fa-exclamation-circle,
+.signup #signin .confirm-password.error i.fa-exclamation-circle,
+.signup .reset .email.error i.fa-exclamation-circle,
+.signup .reset .username.error i.fa-exclamation-circle,
+.signup .reset .password.error i.fa-exclamation-circle,
+.signup .reset .confirm-password.error i.fa-exclamation-circle,
+.reset .registration .email.error i.fa-exclamation-circle,
+.reset .registration .username.error i.fa-exclamation-circle,
+.reset .registration .password.error i.fa-exclamation-circle,
+.reset .registration .confirm-password.error i.fa-exclamation-circle,
+.reset .signin .email.error i.fa-exclamation-circle,
+.reset .signin .username.error i.fa-exclamation-circle,
+.reset .signin .password.error i.fa-exclamation-circle,
+.reset .signin .confirm-password.error i.fa-exclamation-circle,
+.reset #signin .email.error i.fa-exclamation-circle,
+.reset #signin .username.error i.fa-exclamation-circle,
+.reset #signin .password.error i.fa-exclamation-circle,
+.reset #signin .confirm-password.error i.fa-exclamation-circle,
+.reset .reset .email.error i.fa-exclamation-circle,
+.reset .reset .username.error i.fa-exclamation-circle,
+.reset .reset .password.error i.fa-exclamation-circle,
+.reset .reset .confirm-password.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+.login .registration .email input,
+.login .registration .username input,
+.login .registration .password input,
+.login .registration .confirm-password input,
+.login .signin .email input,
+.login .signin .username input,
+.login .signin .password input,
+.login .signin .confirm-password input,
+.login #signin .email input,
+.login #signin .username input,
+.login #signin .password input,
+.login #signin .confirm-password input,
+.login .reset .email input,
+.login .reset .username input,
+.login .reset .password input,
+.login .reset .confirm-password input,
+.signup .registration .email input,
+.signup .registration .username input,
+.signup .registration .password input,
+.signup .registration .confirm-password input,
+.signup .signin .email input,
+.signup .signin .username input,
+.signup .signin .password input,
+.signup .signin .confirm-password input,
+.signup #signin .email input,
+.signup #signin .username input,
+.signup #signin .password input,
+.signup #signin .confirm-password input,
+.signup .reset .email input,
+.signup .reset .username input,
+.signup .reset .password input,
+.signup .reset .confirm-password input,
+.reset .registration .email input,
+.reset .registration .username input,
+.reset .registration .password input,
+.reset .registration .confirm-password input,
+.reset .signin .email input,
+.reset .signin .username input,
+.reset .signin .password input,
+.reset .signin .confirm-password input,
+.reset #signin .email input,
+.reset #signin .username input,
+.reset #signin .password input,
+.reset #signin .confirm-password input,
+.reset .reset .email input,
+.reset .reset .username input,
+.reset .reset .password input,
+.reset .reset .confirm-password input {
+  border-color: black;
+  width: 100%;
+  height: 2rem;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+.login .registration .email i,
+.login .registration .username i,
+.login .registration .password i,
+.login .registration .confirm-password i,
+.login .signin .email i,
+.login .signin .username i,
+.login .signin .password i,
+.login .signin .confirm-password i,
+.login #signin .email i,
+.login #signin .username i,
+.login #signin .password i,
+.login #signin .confirm-password i,
+.login .reset .email i,
+.login .reset .username i,
+.login .reset .password i,
+.login .reset .confirm-password i,
+.signup .registration .email i,
+.signup .registration .username i,
+.signup .registration .password i,
+.signup .registration .confirm-password i,
+.signup .signin .email i,
+.signup .signin .username i,
+.signup .signin .password i,
+.signup .signin .confirm-password i,
+.signup #signin .email i,
+.signup #signin .username i,
+.signup #signin .password i,
+.signup #signin .confirm-password i,
+.signup .reset .email i,
+.signup .reset .username i,
+.signup .reset .password i,
+.signup .reset .confirm-password i,
+.reset .registration .email i,
+.reset .registration .username i,
+.reset .registration .password i,
+.reset .registration .confirm-password i,
+.reset .signin .email i,
+.reset .signin .username i,
+.reset .signin .password i,
+.reset .signin .confirm-password i,
+.reset #signin .email i,
+.reset #signin .username i,
+.reset #signin .password i,
+.reset #signin .confirm-password i,
+.reset .reset .email i,
+.reset .reset .username i,
+.reset .reset .password i,
+.reset .reset .confirm-password i {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  visibility: hidden;
+}
+.login .registration .email button,
+.login .registration .username button,
+.login .registration .password button,
+.login .registration .confirm-password button,
+.login .signin .email button,
+.login .signin .username button,
+.login .signin .password button,
+.login .signin .confirm-password button,
+.login #signin .email button,
+.login #signin .username button,
+.login #signin .password button,
+.login #signin .confirm-password button,
+.login .reset .email button,
+.login .reset .username button,
+.login .reset .password button,
+.login .reset .confirm-password button,
+.signup .registration .email button,
+.signup .registration .username button,
+.signup .registration .password button,
+.signup .registration .confirm-password button,
+.signup .signin .email button,
+.signup .signin .username button,
+.signup .signin .password button,
+.signup .signin .confirm-password button,
+.signup #signin .email button,
+.signup #signin .username button,
+.signup #signin .password button,
+.signup #signin .confirm-password button,
+.signup .reset .email button,
+.signup .reset .username button,
+.signup .reset .password button,
+.signup .reset .confirm-password button,
+.reset .registration .email button,
+.reset .registration .username button,
+.reset .registration .password button,
+.reset .registration .confirm-password button,
+.reset .signin .email button,
+.reset .signin .username button,
+.reset .signin .password button,
+.reset .signin .confirm-password button,
+.reset #signin .email button,
+.reset #signin .username button,
+.reset #signin .password button,
+.reset #signin .confirm-password button,
+.reset .reset .email button,
+.reset .reset .username button,
+.reset .reset .password button,
+.reset .reset .confirm-password button {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+  .contact .card {
+    max-width: 600px;
+  }
+}
+.login,
+.signup,
+.reset {
+  margin-top: 0;
+  justify-content: center;
+}
+.login .signInOptions,
+.signup .signInOptions,
+.reset .signInOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem;
+}
+.login .signInOptions button,
+.signup .signInOptions button,
+.reset .signInOptions button {
+  margin: 0;
+}
+.login .registration,
+.login .signin,
+.login #signin,
+.login .reset,
+.signup .registration,
+.signup .signin,
+.signup #signin,
+.signup .reset,
+.reset .registration,
+.reset .signin,
+.reset #signin,
+.reset .reset {
+  min-width: 20rem;
+}
+.login .registration p,
+.login .signin p,
+.login #signin p,
+.login .reset p,
+.signup .registration p,
+.signup .signin p,
+.signup #signin p,
+.signup .reset p,
+.reset .registration p,
+.reset .signin p,
+.reset #signin p,
+.reset .reset p {
+  text-align: left;
+  line-height: 0;
+  margin: 0 0 1rem;
+}
+.login .registration p.error,
+.login .signin p.error,
+.login #signin p.error,
+.login .reset p.error,
+.signup .registration p.error,
+.signup .signin p.error,
+.signup #signin p.error,
+.signup .reset p.error,
+.reset .registration p.error,
+.reset .signin p.error,
+.reset #signin p.error,
+.reset .reset p.error {
+  color: #e74c3c;
+}
+.login .registration p.success,
+.login .signin p.success,
+.login #signin p.success,
+.login .reset p.success,
+.signup .registration p.success,
+.signup .signin p.success,
+.signup #signin p.success,
+.signup .reset p.success,
+.reset .registration p.success,
+.reset .signin p.success,
+.reset #signin p.success,
+.reset .reset p.success {
+  color: #2ecc71;
+}
+.login .registration .email,
+.login .registration .username,
+.login .registration .password,
+.login .registration .confirm-password,
+.login .signin .email,
+.login .signin .username,
+.login .signin .password,
+.login .signin .confirm-password,
+.login #signin .email,
+.login #signin .username,
+.login #signin .password,
+.login #signin .confirm-password,
+.login .reset .email,
+.login .reset .username,
+.login .reset .password,
+.login .reset .confirm-password,
+.signup .registration .email,
+.signup .registration .username,
+.signup .registration .password,
+.signup .registration .confirm-password,
+.signup .signin .email,
+.signup .signin .username,
+.signup .signin .password,
+.signup .signin .confirm-password,
+.signup #signin .email,
+.signup #signin .username,
+.signup #signin .password,
+.signup #signin .confirm-password,
+.signup .reset .email,
+.signup .reset .username,
+.signup .reset .password,
+.signup .reset .confirm-password,
+.reset .registration .email,
+.reset .registration .username,
+.reset .registration .password,
+.reset .registration .confirm-password,
+.reset .signin .email,
+.reset .signin .username,
+.reset .signin .password,
+.reset .signin .confirm-password,
+.reset #signin .email,
+.reset #signin .username,
+.reset #signin .password,
+.reset #signin .confirm-password,
+.reset .reset .email,
+.reset .reset .username,
+.reset .reset .password,
+.reset .reset .confirm-password {
+  position: relative;
+}
+.login .registration .email.success input,
+.login .registration .username.success input,
+.login .registration .password.success input,
+.login .registration .confirm-password.success input,
+.login .signin .email.success input,
+.login .signin .username.success input,
+.login .signin .password.success input,
+.login .signin .confirm-password.success input,
+.login #signin .email.success input,
+.login #signin .username.success input,
+.login #signin .password.success input,
+.login #signin .confirm-password.success input,
+.login .reset .email.success input,
+.login .reset .username.success input,
+.login .reset .password.success input,
+.login .reset .confirm-password.success input,
+.signup .registration .email.success input,
+.signup .registration .username.success input,
+.signup .registration .password.success input,
+.signup .registration .confirm-password.success input,
+.signup .signin .email.success input,
+.signup .signin .username.success input,
+.signup .signin .password.success input,
+.signup .signin .confirm-password.success input,
+.signup #signin .email.success input,
+.signup #signin .username.success input,
+.signup #signin .password.success input,
+.signup #signin .confirm-password.success input,
+.signup .reset .email.success input,
+.signup .reset .username.success input,
+.signup .reset .password.success input,
+.signup .reset .confirm-password.success input,
+.reset .registration .email.success input,
+.reset .registration .username.success input,
+.reset .registration .password.success input,
+.reset .registration .confirm-password.success input,
+.reset .signin .email.success input,
+.reset .signin .username.success input,
+.reset .signin .password.success input,
+.reset .signin .confirm-password.success input,
+.reset #signin .email.success input,
+.reset #signin .username.success input,
+.reset #signin .password.success input,
+.reset #signin .confirm-password.success input,
+.reset .reset .email.success input,
+.reset .reset .username.success input,
+.reset .reset .password.success input,
+.reset .reset .confirm-password.success input {
+  border-color: #2ecc71;
+}
+.login .registration .email.success i.fa-check-circle,
+.login .registration .username.success i.fa-check-circle,
+.login .registration .password.success i.fa-check-circle,
+.login .registration .confirm-password.success i.fa-check-circle,
+.login .signin .email.success i.fa-check-circle,
+.login .signin .username.success i.fa-check-circle,
+.login .signin .password.success i.fa-check-circle,
+.login .signin .confirm-password.success i.fa-check-circle,
+.login #signin .email.success i.fa-check-circle,
+.login #signin .username.success i.fa-check-circle,
+.login #signin .password.success i.fa-check-circle,
+.login #signin .confirm-password.success i.fa-check-circle,
+.login .reset .email.success i.fa-check-circle,
+.login .reset .username.success i.fa-check-circle,
+.login .reset .password.success i.fa-check-circle,
+.login .reset .confirm-password.success i.fa-check-circle,
+.signup .registration .email.success i.fa-check-circle,
+.signup .registration .username.success i.fa-check-circle,
+.signup .registration .password.success i.fa-check-circle,
+.signup .registration .confirm-password.success i.fa-check-circle,
+.signup .signin .email.success i.fa-check-circle,
+.signup .signin .username.success i.fa-check-circle,
+.signup .signin .password.success i.fa-check-circle,
+.signup .signin .confirm-password.success i.fa-check-circle,
+.signup #signin .email.success i.fa-check-circle,
+.signup #signin .username.success i.fa-check-circle,
+.signup #signin .password.success i.fa-check-circle,
+.signup #signin .confirm-password.success i.fa-check-circle,
+.signup .reset .email.success i.fa-check-circle,
+.signup .reset .username.success i.fa-check-circle,
+.signup .reset .password.success i.fa-check-circle,
+.signup .reset .confirm-password.success i.fa-check-circle,
+.reset .registration .email.success i.fa-check-circle,
+.reset .registration .username.success i.fa-check-circle,
+.reset .registration .password.success i.fa-check-circle,
+.reset .registration .confirm-password.success i.fa-check-circle,
+.reset .signin .email.success i.fa-check-circle,
+.reset .signin .username.success i.fa-check-circle,
+.reset .signin .password.success i.fa-check-circle,
+.reset .signin .confirm-password.success i.fa-check-circle,
+.reset #signin .email.success i.fa-check-circle,
+.reset #signin .username.success i.fa-check-circle,
+.reset #signin .password.success i.fa-check-circle,
+.reset #signin .confirm-password.success i.fa-check-circle,
+.reset .reset .email.success i.fa-check-circle,
+.reset .reset .username.success i.fa-check-circle,
+.reset .reset .password.success i.fa-check-circle,
+.reset .reset .confirm-password.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+.login .registration .email.error p,
+.login .registration .username.error p,
+.login .registration .password.error p,
+.login .registration .confirm-password.error p,
+.login .signin .email.error p,
+.login .signin .username.error p,
+.login .signin .password.error p,
+.login .signin .confirm-password.error p,
+.login #signin .email.error p,
+.login #signin .username.error p,
+.login #signin .password.error p,
+.login #signin .confirm-password.error p,
+.login .reset .email.error p,
+.login .reset .username.error p,
+.login .reset .password.error p,
+.login .reset .confirm-password.error p,
+.signup .registration .email.error p,
+.signup .registration .username.error p,
+.signup .registration .password.error p,
+.signup .registration .confirm-password.error p,
+.signup .signin .email.error p,
+.signup .signin .username.error p,
+.signup .signin .password.error p,
+.signup .signin .confirm-password.error p,
+.signup #signin .email.error p,
+.signup #signin .username.error p,
+.signup #signin .password.error p,
+.signup #signin .confirm-password.error p,
+.signup .reset .email.error p,
+.signup .reset .username.error p,
+.signup .reset .password.error p,
+.signup .reset .confirm-password.error p,
+.reset .registration .email.error p,
+.reset .registration .username.error p,
+.reset .registration .password.error p,
+.reset .registration .confirm-password.error p,
+.reset .signin .email.error p,
+.reset .signin .username.error p,
+.reset .signin .password.error p,
+.reset .signin .confirm-password.error p,
+.reset #signin .email.error p,
+.reset #signin .username.error p,
+.reset #signin .password.error p,
+.reset #signin .confirm-password.error p,
+.reset .reset .email.error p,
+.reset .reset .username.error p,
+.reset .reset .password.error p,
+.reset .reset .confirm-password.error p {
+  color: #e74c3c;
+}
+.login .registration .email.error input,
+.login .registration .username.error input,
+.login .registration .password.error input,
+.login .registration .confirm-password.error input,
+.login .signin .email.error input,
+.login .signin .username.error input,
+.login .signin .password.error input,
+.login .signin .confirm-password.error input,
+.login #signin .email.error input,
+.login #signin .username.error input,
+.login #signin .password.error input,
+.login #signin .confirm-password.error input,
+.login .reset .email.error input,
+.login .reset .username.error input,
+.login .reset .password.error input,
+.login .reset .confirm-password.error input,
+.signup .registration .email.error input,
+.signup .registration .username.error input,
+.signup .registration .password.error input,
+.signup .registration .confirm-password.error input,
+.signup .signin .email.error input,
+.signup .signin .username.error input,
+.signup .signin .password.error input,
+.signup .signin .confirm-password.error input,
+.signup #signin .email.error input,
+.signup #signin .username.error input,
+.signup #signin .password.error input,
+.signup #signin .confirm-password.error input,
+.signup .reset .email.error input,
+.signup .reset .username.error input,
+.signup .reset .password.error input,
+.signup .reset .confirm-password.error input,
+.reset .registration .email.error input,
+.reset .registration .username.error input,
+.reset .registration .password.error input,
+.reset .registration .confirm-password.error input,
+.reset .signin .email.error input,
+.reset .signin .username.error input,
+.reset .signin .password.error input,
+.reset .signin .confirm-password.error input,
+.reset #signin .email.error input,
+.reset #signin .username.error input,
+.reset #signin .password.error input,
+.reset #signin .confirm-password.error input,
+.reset .reset .email.error input,
+.reset .reset .username.error input,
+.reset .reset .password.error input,
+.reset .reset .confirm-password.error input {
+  border-color: #e74c3c;
+}
+.login .registration .email.error i.fa-exclamation-circle,
+.login .registration .username.error i.fa-exclamation-circle,
+.login .registration .password.error i.fa-exclamation-circle,
+.login .registration .confirm-password.error i.fa-exclamation-circle,
+.login .signin .email.error i.fa-exclamation-circle,
+.login .signin .username.error i.fa-exclamation-circle,
+.login .signin .password.error i.fa-exclamation-circle,
+.login .signin .confirm-password.error i.fa-exclamation-circle,
+.login #signin .email.error i.fa-exclamation-circle,
+.login #signin .username.error i.fa-exclamation-circle,
+.login #signin .password.error i.fa-exclamation-circle,
+.login #signin .confirm-password.error i.fa-exclamation-circle,
+.login .reset .email.error i.fa-exclamation-circle,
+.login .reset .username.error i.fa-exclamation-circle,
+.login .reset .password.error i.fa-exclamation-circle,
+.login .reset .confirm-password.error i.fa-exclamation-circle,
+.signup .registration .email.error i.fa-exclamation-circle,
+.signup .registration .username.error i.fa-exclamation-circle,
+.signup .registration .password.error i.fa-exclamation-circle,
+.signup .registration .confirm-password.error i.fa-exclamation-circle,
+.signup .signin .email.error i.fa-exclamation-circle,
+.signup .signin .username.error i.fa-exclamation-circle,
+.signup .signin .password.error i.fa-exclamation-circle,
+.signup .signin .confirm-password.error i.fa-exclamation-circle,
+.signup #signin .email.error i.fa-exclamation-circle,
+.signup #signin .username.error i.fa-exclamation-circle,
+.signup #signin .password.error i.fa-exclamation-circle,
+.signup #signin .confirm-password.error i.fa-exclamation-circle,
+.signup .reset .email.error i.fa-exclamation-circle,
+.signup .reset .username.error i.fa-exclamation-circle,
+.signup .reset .password.error i.fa-exclamation-circle,
+.signup .reset .confirm-password.error i.fa-exclamation-circle,
+.reset .registration .email.error i.fa-exclamation-circle,
+.reset .registration .username.error i.fa-exclamation-circle,
+.reset .registration .password.error i.fa-exclamation-circle,
+.reset .registration .confirm-password.error i.fa-exclamation-circle,
+.reset .signin .email.error i.fa-exclamation-circle,
+.reset .signin .username.error i.fa-exclamation-circle,
+.reset .signin .password.error i.fa-exclamation-circle,
+.reset .signin .confirm-password.error i.fa-exclamation-circle,
+.reset #signin .email.error i.fa-exclamation-circle,
+.reset #signin .username.error i.fa-exclamation-circle,
+.reset #signin .password.error i.fa-exclamation-circle,
+.reset #signin .confirm-password.error i.fa-exclamation-circle,
+.reset .reset .email.error i.fa-exclamation-circle,
+.reset .reset .username.error i.fa-exclamation-circle,
+.reset .reset .password.error i.fa-exclamation-circle,
+.reset .reset .confirm-password.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+.login .registration .email input,
+.login .registration .username input,
+.login .registration .password input,
+.login .registration .confirm-password input,
+.login .signin .email input,
+.login .signin .username input,
+.login .signin .password input,
+.login .signin .confirm-password input,
+.login #signin .email input,
+.login #signin .username input,
+.login #signin .password input,
+.login #signin .confirm-password input,
+.login .reset .email input,
+.login .reset .username input,
+.login .reset .password input,
+.login .reset .confirm-password input,
+.signup .registration .email input,
+.signup .registration .username input,
+.signup .registration .password input,
+.signup .registration .confirm-password input,
+.signup .signin .email input,
+.signup .signin .username input,
+.signup .signin .password input,
+.signup .signin .confirm-password input,
+.signup #signin .email input,
+.signup #signin .username input,
+.signup #signin .password input,
+.signup #signin .confirm-password input,
+.signup .reset .email input,
+.signup .reset .username input,
+.signup .reset .password input,
+.signup .reset .confirm-password input,
+.reset .registration .email input,
+.reset .registration .username input,
+.reset .registration .password input,
+.reset .registration .confirm-password input,
+.reset .signin .email input,
+.reset .signin .username input,
+.reset .signin .password input,
+.reset .signin .confirm-password input,
+.reset #signin .email input,
+.reset #signin .username input,
+.reset #signin .password input,
+.reset #signin .confirm-password input,
+.reset .reset .email input,
+.reset .reset .username input,
+.reset .reset .password input,
+.reset .reset .confirm-password input {
+  border-color: black;
+  width: 100%;
+  height: 2rem;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+.login .registration .email i,
+.login .registration .username i,
+.login .registration .password i,
+.login .registration .confirm-password i,
+.login .signin .email i,
+.login .signin .username i,
+.login .signin .password i,
+.login .signin .confirm-password i,
+.login #signin .email i,
+.login #signin .username i,
+.login #signin .password i,
+.login #signin .confirm-password i,
+.login .reset .email i,
+.login .reset .username i,
+.login .reset .password i,
+.login .reset .confirm-password i,
+.signup .registration .email i,
+.signup .registration .username i,
+.signup .registration .password i,
+.signup .registration .confirm-password i,
+.signup .signin .email i,
+.signup .signin .username i,
+.signup .signin .password i,
+.signup .signin .confirm-password i,
+.signup #signin .email i,
+.signup #signin .username i,
+.signup #signin .password i,
+.signup #signin .confirm-password i,
+.signup .reset .email i,
+.signup .reset .username i,
+.signup .reset .password i,
+.signup .reset .confirm-password i,
+.reset .registration .email i,
+.reset .registration .username i,
+.reset .registration .password i,
+.reset .registration .confirm-password i,
+.reset .signin .email i,
+.reset .signin .username i,
+.reset .signin .password i,
+.reset .signin .confirm-password i,
+.reset #signin .email i,
+.reset #signin .username i,
+.reset #signin .password i,
+.reset #signin .confirm-password i,
+.reset .reset .email i,
+.reset .reset .username i,
+.reset .reset .password i,
+.reset .reset .confirm-password i {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  visibility: hidden;
+}
+.login .registration .remember,
+.login .signin .remember,
+.login #signin .remember,
+.login .reset .remember,
+.signup .registration .remember,
+.signup .signin .remember,
+.signup #signin .remember,
+.signup .reset .remember,
+.reset .registration .remember,
+.reset .signin .remember,
+.reset #signin .remember,
+.reset .reset .remember {
+  margin-bottom: 1rem;
+}
+.login .registration button,
+.login .signin button,
+.login #signin button,
+.login .reset button,
+.signup .registration button,
+.signup .signin button,
+.signup #signin button,
+.signup .reset button,
+.reset .registration button,
+.reset .signin button,
+.reset #signin button,
+.reset .reset button {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+  .contact .card {
+    max-width: 600px;
+  }
+}
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkmark::after {
+  content: "✓";
+  color: white;
+}
+
+input[type=checkbox]:checked + .checkmark {
+  background-color: black;
+}
+
+form label {
+  display: block;
+  text-align: left;
+  font-size: 1.5rem;
+  margin: 0.25em 0;
+}
+form input {
+  border-color: black;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+form textarea {
+  border-color: black;
+  width: 100%;
+  min-height: 6rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5em;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+table {
+  width: 100%;
+}
+
+thead th {
+  background-color: black;
+  color: white;
+  padding: 0.25rem;
+}
+thead th.invoice-total-due, thead th.invoice-total-due-number {
+  text-align: end;
+}
+
+tbody tr td {
+  padding: 0.25rem;
+}
+tbody tr td.cost, tbody tr td.invoice-cost {
+  text-align: end;
+}
+
+tfoot tr th {
+  background-color: black;
+  color: white;
+  padding: 0.25rem;
+}
+tfoot tr th.total-number, tfoot tr th.service-grand-total-number {
+  text-align: end;
+}
+tfoot tr td {
+  padding: 0.25rem;
+}
+tfoot tr td.invoice-tax-rate {
+  opacity: 0;
+}
+tfoot tr td.invoice-total {
+  text-align: end;
+}
+
+.schedule {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+.schedule .schedule-card {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.schedule .schedule-card form {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "date date time" "email email email" "name name name" "street street street" "city state zipcode";
+}
+.schedule .schedule-card form .date {
+  grid-area: "date";
+}
+.schedule .schedule-card form .time {
+  grid-area: "time";
+}
+.schedule .schedule-card form .name {
+  grid-area: "name";
+}
+.schedule .schedule-card form .email {
+  grid-area: "email";
+}
+.schedule .schedule-card form .street {
+  grid-area: "street";
+}
+.schedule .schedule-card form .city {
+  grid-area: "city";
+}
+.schedule .schedule-card form .state {
+  grid-area: "state";
+}
+.schedule .schedule-card form .zipcode {
+  grid-area: "zipcode";
+}
+
+.payment {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}/*# sourceMappingURL=main.css.map */

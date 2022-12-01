@@ -1,0 +1,56 @@
+.gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wp-block-image {
+        margin: auto;
+        align-items: center;
+        justify-content: center;  
+    }
+
+    .imageSelector {
+        
+        .leftArrow {
+            cursor: pointer;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            width: 10%;
+            background-color: black;
+            opacity: 60%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .arrow {
+                transform: rotate(90deg);
+            }    
+        }
+
+
+        .rightArrow {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            width:10%;
+            background-color: black;
+            opacity: 60%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .arrow {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}

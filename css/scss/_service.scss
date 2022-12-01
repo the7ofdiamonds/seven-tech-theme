@@ -1,0 +1,40 @@
+@use './_variables.scss';
+
+section.service {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: center;
+
+  .invoice {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .schedule {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .payment {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .receipt {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+}

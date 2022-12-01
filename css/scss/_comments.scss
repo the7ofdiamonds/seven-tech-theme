@@ -1,0 +1,42 @@
+.comment-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 90%;
+    max-width: 700px;
+
+    header {
+        display: grid;
+        grid-template-areas: "avatar author"
+        "avatar date"
+        "avatar time";
+        width: 100%;
+
+        .comment-author-avatar,
+        .comment-author,
+        .comment-date,
+        .comment-time {
+            width: fit-content;
+        }
+
+        .comment-author-avatar {
+            grid-area: avatar;
+        }
+
+        .comment-author {
+            grid-area: author;
+        }
+
+        .comment-date {
+            grid-area: date;
+        }
+
+        .comment-time {
+            grid-area: time;
+        }
+    }
+
+    .comment-respond {
+        width: 100%;
+    }
+}

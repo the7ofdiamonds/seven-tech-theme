@@ -1,0 +1,14 @@
+.social-icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: .5rem;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: var(--boxShadow);
+  
+    a img {
+      width: auto;
+      height: 3rem;
+    }  
+  }

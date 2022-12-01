@@ -1,0 +1,68 @@
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 2px solid black;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.checkmark::after {
+    content: '\2713';
+    color: white; 
+}
+
+input[type="checkbox"]:checked + .checkmark {
+    background-color: black;
+}
+
+form {
+
+    label {
+      display: block;
+      text-align: left;
+      font-size: .75rem;
+      margin: .25em 0;
+    }
+    
+    input,
+    select {
+      border-color: black;
+      height: 2rem;
+      border: none;
+      outline: none;
+      background: none;
+      padding: .5rem;
+      border-radius: 5px;
+      box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;        
+    } 
+
+    textarea {
+      border-color: black;
+      width: 100%;
+      min-height: 6rem;
+      height:fit-content;
+      overflow: hidden;            
+      border: none;
+      outline: none;
+      background: none;
+      padding: .5em;
+      margin-bottom: .5rem;
+      border-radius: 5px;
+      box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;        
+    } 
+}

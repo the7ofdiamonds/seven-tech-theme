@@ -1,0 +1,12 @@
+//Beginning _button.scss
+button,
+.schedule-button, 
+.payment-button {
+  cursor: pointer;
+  border: none;
+  padding: .5rem;
+  font-family: '"Times New Roman", Times, serif';
+  font-size: 1.5rem;
+  letter-spacing: .25rem;
+}
+//End _button.scss

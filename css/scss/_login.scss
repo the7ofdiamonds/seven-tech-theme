@@ -1,0 +1,49 @@
+section.login {
+    justify-content: center;
+    padding-top: 0;
+}
+
+.login-card {
+    width: 90%;
+}
+  
+.signin-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    background-color: transparent;
+    width: 100%;
+
+    .apple,
+    .google,
+    .microsoft {
+        display: grid;
+        grid-template-columns: 3rem 15rem;
+        padding: .5rem;
+        text-align: center;
+        align-items: center;
+        height: 3rem;
+        column-gap: .25rem;
+        
+        img {
+            height: 2rem;
+            width: 2rem;
+            justify-self: flex-start;
+        }
+
+        h3 {
+            letter-spacing: 0;
+            justify-self: flex-start;
+        }
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+
+    .login-card {
+        max-width: 600px;
+    }
+}
