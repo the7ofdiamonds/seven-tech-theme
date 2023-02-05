@@ -1,11 +1,10 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 h1,
 h2,
 h3,
 h4 {
   letter-spacing: 0.25rem;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h1 {
@@ -22,19 +21,7 @@ h3 {
 
 h4 {
   font-size: 1.125rem;
-}
-
-a {
-  text-decoration: none;
-}
-
-a,
-strong {
-  letter-spacing: 0.1rem;
-}
-
-strong {
-  font-weight: 550;
+  font-weight: 700;
 }
 
 * {
@@ -53,31 +40,39 @@ body {
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   overflow: hidden;
   width: 100vw;
+  display: grid;
+  grid-template-areas: "Navigation" "Section" "Footer";
 }
 
 header {
-  grid-area: Menu;
-  width: 100%;
-}
-header nav {
-  width: 100%;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: 2.5rem 1fr 2.5rem;
-  grid-template-areas: "LeftSide Center RightSide" ". Links .";
+  grid-area: Navigation;
+  width: 100vw;
+  height: 4rem;
   position: fixed;
   top: 0;
   z-index: 1000;
 }
+header nav {
+  width: 100vw;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-areas: "LeftSide Center RightSide" ". Links .";
+}
+header nav a {
+  text-decoration: none;
+}
 header nav ul li {
   width: 100%;
-  margin: 1rem;
+  margin: 0.5rem 0;
   list-style: none;
   text-align: center;
 }
@@ -92,11 +87,7 @@ header nav .center {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-header nav .center .logo a img {
-  width: 100%;
-  height: 4rem;
-  padding: 0.25rem;
+  justify-content: center;
 }
 header nav .center .dropdown {
   display: none;
@@ -165,12 +156,15 @@ header nav .rightSide .right-menu {
 }
 @media screen and (min-width: 1200px) {
   header nav {
-    grid-template-columns: 1fr 25rem 1fr;
+    grid-template-columns: 1fr 22rem 1fr;
   }
   header nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  header nav ul li {
+    margin: 1rem;
   }
   header nav .leftSide {
     display: flex;
@@ -193,15 +187,12 @@ header nav .rightSide .right-menu {
     display: flex;
   }
 }
-button,
-.schedule-button,
-.payment-button {
+button {
   cursor: pointer;
   border: none;
   padding: 0.5rem;
-  font-family: '"Times New Roman", Times, serif';
-  font-size: 1.5rem;
-  letter-spacing: 0.25rem;
+  width: fit-content;
+  height: fit-content;
 }
 
 section {
@@ -211,201 +202,29 @@ section {
   align-items: center;
   min-height: 100vh;
   padding: 0 1rem;
-  margin-top: 6rem;
-  margin-bottom: 2rem;
-  gap: 2rem;
+  margin-top: 4rem;
+  gap: 1rem;
+}
+section.front-page, section.signup, section.login, section.reset {
+  justify-content: center;
+  margin: 0;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   height: fit-content;
   max-width: 1000px;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
-}
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-.comment-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 90%;
-  max-width: 700px;
-}
-.comment-card header {
-  display: grid;
-  grid-template-areas: "avatar author" "avatar date" "avatar time";
-  width: 100%;
-}
-.comment-card header .comment-author-avatar,
-.comment-card header .comment-author,
-.comment-card header .comment-date,
-.comment-card header .comment-time {
-  width: fit-content;
-}
-.comment-card header .comment-author-avatar {
-  grid-area: avatar;
-}
-.comment-card header .comment-author {
-  grid-area: author;
-}
-.comment-card header .comment-date {
-  grid-area: date;
-}
-.comment-card header .comment-time {
-  grid-area: time;
-}
-.comment-card .comment-respond {
-  width: 100%;
-}
-
-/* Front Page */
-/* End Front Page */
-.hero {
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin: 0;
-  padding-top: 0;
-  height: 100vh;
-}
-.hero .card {
-  width: fit-content;
-}
-.hero p {
-  margin: 1rem;
-}
-
-section.service {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
-  align-items: center;
-}
-section.service .invoice {
-  display: none;
-}
-section.service .invoice.active {
-  display: flex;
-}
-section.service .schedule {
-  display: none;
-}
-section.service .schedule.active {
-  display: flex;
-}
-section.service .payment {
-  display: none;
-}
-section.service .payment.active {
-  display: flex;
-}
-section.service .receipt {
-  display: none;
-}
-section.service .receipt.active {
-  display: flex;
-}
-
-section.services .service-list {
-  display: grid;
-  row-gap: 2rem;
-}
-section.services .service-list .service-card {
-  display: grid;
-  grid-template-areas: "Name" "Icon" "Description" "Features" "Action";
-  grid-template-rows: 1.75rem 3.75rem auto 5rem 4rem;
-  row-gap: 1rem;
-  min-width: 350px;
-}
-section.services .service-list .service-card .service-name {
-  grid-area: Name;
-}
-section.services .service-list .service-card .service-icon {
-  grid-area: Icon;
-}
-section.services .service-list .service-card .service-icon img {
-  width: 3rem;
-  height: 3rem;
-  margin: auto;
-}
-section.services .service-list .service-card .service-description {
-  grid-area: Description;
-  font-weight: 700;
-}
-section.services .service-list .service-card .service-features {
-  grid-area: Features;
-}
-section.services .service-list .service-card .service-features ul.feature-list li.feature {
-  list-style: none;
-  line-height: 1.5rem;
-}
-section.services .service-list .service-card .service-action {
-  grid-area: Action;
-  width: 100%;
-}
-
-@media screen and (min-width: 1150px) {
-  section.services .service-list {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
-  }
-
-  .card:hover {
-    transform: translateY(-1rem);
-  }
-}
-.project-card {
-  width: 100%;
-}
-.project-card .project-name {
-  margin-bottom: 1rem;
-}
-.project-card .project-featured-image {
-  margin: 0;
-}
-.project-card .project-featured-image img {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-.project-card .project-type {
-  margin: 0.5rem;
-}
-.project-card .project-type p {
-  margin: 0;
-  font-weight: 700;
-}
-.project-card .project-description-short {
-  margin: 0.5rem 0;
-}
-.project-card .project-description-short p {
-  margin: 0;
-}
-.project-card .project-action {
-  margin-top: 0.5rem 0 1rem;
-}
-
-section.project .card {
-  margin: 1rem auto;
-  width: 90%;
-}
-section.project .project-type .card p {
-  margin: 0;
-  font-weight: 700;
-}
-section.project .project-description {
-  margin: 0.5rem 0;
-}
-section.project .project-description p {
-  margin: 0;
 }
 
 p {
-  line-height: 2rem;
+  line-height: 1.25;
+  font-size: 1rem;
 }
 
 p.legal {
@@ -420,1108 +239,64 @@ p.answer {
   padding: 0.5rem 1rem 1rem 1rem !important;
 }
 
-.contact-card {
-  width: 90%;
-  max-width: 30rem;
-}
-
-form input {
-  border-color: black;
-  width: 100%;
-  height: 2rem;
-  border: none;
-  outline: none;
-  background: none;
-  padding: 0.5em;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-form textarea {
-  border-color: black;
-  width: 100%;
-  min-height: 6rem;
-  height: fit-content;
-  overflow: hidden;
-  border: none;
-  outline: none;
-  background: none;
-  padding: 0.5em;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-form p {
-  font-size: 0.75rem;
-  margin: 0.5em 0 0.5em 0;
-}
-form p a {
-  color: black;
-  cursor: pointer;
-}
-form p a:hover {
-  font-size: 0.9rem;
-}
-
-section.login {
-  justify-content: center;
-  padding-top: 0;
-}
-
-.login-card {
-  width: 90%;
-}
-
-.signin-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 1rem;
-  background-color: transparent;
-  width: 100%;
-}
-.signin-options .apple,
-.signin-options .google,
-.signin-options .microsoft {
-  display: grid;
-  grid-template-columns: 3rem 15rem;
-  padding: 0.5rem;
-  text-align: center;
-  align-items: center;
-  height: 3rem;
-  column-gap: 0.25rem;
-}
-.signin-options .apple img,
-.signin-options .google img,
-.signin-options .microsoft img {
-  height: 2rem;
-  width: 2rem;
-  justify-self: flex-start;
-}
-.signin-options .apple h3,
-.signin-options .google h3,
-.signin-options .microsoft h3 {
-  letter-spacing: 0;
-  justify-self: flex-start;
-}
-
-@media screen and (min-width: 700px) {
-  .login-card {
-    max-width: 600px;
-  }
-}
 footer {
+  grid-area: Footer;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 1rem;
+  margin-top: 1rem;
 }
 footer p.legal {
   text-align: center;
 }
 
-.quote {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
-  width: 100%;
-}
-.quote .quote-card {
-  padding: 0;
-  width: fit-content;
-}
-
-.invoice {
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
-  width: 100%;
-}
-.invoice .invoice-card {
-  padding: 0;
-  width: fit-content;
-}
-
-.support .support-card h4 {
-  letter-spacing: 0;
-  font-weight: 700;
-}
-
-.login,
-.signup,
-.reset {
-  margin-top: 0;
-  justify-content: center;
-}
-.login .signInOptions,
-.signup .signInOptions,
-.reset .signInOptions {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-}
-.login .signInOptions button,
-.signup .signInOptions button,
-.reset .signInOptions button {
-  margin: 0;
-}
-.login .registration-card,
-.login .signin,
-.login #signin,
-.login .reset-card,
-.signup .registration-card,
-.signup .signin,
-.signup #signin,
-.signup .reset-card,
-.reset .registration-card,
-.reset .signin,
-.reset #signin,
-.reset .reset-card {
-  max-width: 20rem;
-}
-.login .registration-card p,
-.login .signin p,
-.login #signin p,
-.login .reset-card p,
-.signup .registration-card p,
-.signup .signin p,
-.signup #signin p,
-.signup .reset-card p,
-.reset .registration-card p,
-.reset .signin p,
-.reset #signin p,
-.reset .reset-card p {
-  text-align: left;
-  line-height: 0;
-  margin: 0 0 1rem;
-}
-.login .registration-card p.error,
-.login .signin p.error,
-.login #signin p.error,
-.login .reset-card p.error,
-.signup .registration-card p.error,
-.signup .signin p.error,
-.signup #signin p.error,
-.signup .reset-card p.error,
-.reset .registration-card p.error,
-.reset .signin p.error,
-.reset #signin p.error,
-.reset .reset-card p.error {
-  color: #e74c3c;
-}
-.login .registration-card p.success,
-.login .signin p.success,
-.login #signin p.success,
-.login .reset-card p.success,
-.signup .registration-card p.success,
-.signup .signin p.success,
-.signup #signin p.success,
-.signup .reset-card p.success,
-.reset .registration-card p.success,
-.reset .signin p.success,
-.reset #signin p.success,
-.reset .reset-card p.success {
-  color: #2ecc71;
-}
-.login .registration-card .email,
-.login .registration-card .username,
-.login .registration-card .password,
-.login .registration-card .confirm-password,
-.login .signin .email,
-.login .signin .username,
-.login .signin .password,
-.login .signin .confirm-password,
-.login #signin .email,
-.login #signin .username,
-.login #signin .password,
-.login #signin .confirm-password,
-.login .reset-card .email,
-.login .reset-card .username,
-.login .reset-card .password,
-.login .reset-card .confirm-password,
-.signup .registration-card .email,
-.signup .registration-card .username,
-.signup .registration-card .password,
-.signup .registration-card .confirm-password,
-.signup .signin .email,
-.signup .signin .username,
-.signup .signin .password,
-.signup .signin .confirm-password,
-.signup #signin .email,
-.signup #signin .username,
-.signup #signin .password,
-.signup #signin .confirm-password,
-.signup .reset-card .email,
-.signup .reset-card .username,
-.signup .reset-card .password,
-.signup .reset-card .confirm-password,
-.reset .registration-card .email,
-.reset .registration-card .username,
-.reset .registration-card .password,
-.reset .registration-card .confirm-password,
-.reset .signin .email,
-.reset .signin .username,
-.reset .signin .password,
-.reset .signin .confirm-password,
-.reset #signin .email,
-.reset #signin .username,
-.reset #signin .password,
-.reset #signin .confirm-password,
-.reset .reset-card .email,
-.reset .reset-card .username,
-.reset .reset-card .password,
-.reset .reset-card .confirm-password {
-  position: relative;
-}
-.login .registration-card .email.success input,
-.login .registration-card .username.success input,
-.login .registration-card .password.success input,
-.login .registration-card .confirm-password.success input,
-.login .signin .email.success input,
-.login .signin .username.success input,
-.login .signin .password.success input,
-.login .signin .confirm-password.success input,
-.login #signin .email.success input,
-.login #signin .username.success input,
-.login #signin .password.success input,
-.login #signin .confirm-password.success input,
-.login .reset-card .email.success input,
-.login .reset-card .username.success input,
-.login .reset-card .password.success input,
-.login .reset-card .confirm-password.success input,
-.signup .registration-card .email.success input,
-.signup .registration-card .username.success input,
-.signup .registration-card .password.success input,
-.signup .registration-card .confirm-password.success input,
-.signup .signin .email.success input,
-.signup .signin .username.success input,
-.signup .signin .password.success input,
-.signup .signin .confirm-password.success input,
-.signup #signin .email.success input,
-.signup #signin .username.success input,
-.signup #signin .password.success input,
-.signup #signin .confirm-password.success input,
-.signup .reset-card .email.success input,
-.signup .reset-card .username.success input,
-.signup .reset-card .password.success input,
-.signup .reset-card .confirm-password.success input,
-.reset .registration-card .email.success input,
-.reset .registration-card .username.success input,
-.reset .registration-card .password.success input,
-.reset .registration-card .confirm-password.success input,
-.reset .signin .email.success input,
-.reset .signin .username.success input,
-.reset .signin .password.success input,
-.reset .signin .confirm-password.success input,
-.reset #signin .email.success input,
-.reset #signin .username.success input,
-.reset #signin .password.success input,
-.reset #signin .confirm-password.success input,
-.reset .reset-card .email.success input,
-.reset .reset-card .username.success input,
-.reset .reset-card .password.success input,
-.reset .reset-card .confirm-password.success input {
-  border-color: #2ecc71;
-}
-.login .registration-card .email.success i.fa-check-circle,
-.login .registration-card .username.success i.fa-check-circle,
-.login .registration-card .password.success i.fa-check-circle,
-.login .registration-card .confirm-password.success i.fa-check-circle,
-.login .signin .email.success i.fa-check-circle,
-.login .signin .username.success i.fa-check-circle,
-.login .signin .password.success i.fa-check-circle,
-.login .signin .confirm-password.success i.fa-check-circle,
-.login #signin .email.success i.fa-check-circle,
-.login #signin .username.success i.fa-check-circle,
-.login #signin .password.success i.fa-check-circle,
-.login #signin .confirm-password.success i.fa-check-circle,
-.login .reset-card .email.success i.fa-check-circle,
-.login .reset-card .username.success i.fa-check-circle,
-.login .reset-card .password.success i.fa-check-circle,
-.login .reset-card .confirm-password.success i.fa-check-circle,
-.signup .registration-card .email.success i.fa-check-circle,
-.signup .registration-card .username.success i.fa-check-circle,
-.signup .registration-card .password.success i.fa-check-circle,
-.signup .registration-card .confirm-password.success i.fa-check-circle,
-.signup .signin .email.success i.fa-check-circle,
-.signup .signin .username.success i.fa-check-circle,
-.signup .signin .password.success i.fa-check-circle,
-.signup .signin .confirm-password.success i.fa-check-circle,
-.signup #signin .email.success i.fa-check-circle,
-.signup #signin .username.success i.fa-check-circle,
-.signup #signin .password.success i.fa-check-circle,
-.signup #signin .confirm-password.success i.fa-check-circle,
-.signup .reset-card .email.success i.fa-check-circle,
-.signup .reset-card .username.success i.fa-check-circle,
-.signup .reset-card .password.success i.fa-check-circle,
-.signup .reset-card .confirm-password.success i.fa-check-circle,
-.reset .registration-card .email.success i.fa-check-circle,
-.reset .registration-card .username.success i.fa-check-circle,
-.reset .registration-card .password.success i.fa-check-circle,
-.reset .registration-card .confirm-password.success i.fa-check-circle,
-.reset .signin .email.success i.fa-check-circle,
-.reset .signin .username.success i.fa-check-circle,
-.reset .signin .password.success i.fa-check-circle,
-.reset .signin .confirm-password.success i.fa-check-circle,
-.reset #signin .email.success i.fa-check-circle,
-.reset #signin .username.success i.fa-check-circle,
-.reset #signin .password.success i.fa-check-circle,
-.reset #signin .confirm-password.success i.fa-check-circle,
-.reset .reset-card .email.success i.fa-check-circle,
-.reset .reset-card .username.success i.fa-check-circle,
-.reset .reset-card .password.success i.fa-check-circle,
-.reset .reset-card .confirm-password.success i.fa-check-circle {
-  color: #2ecc71;
-  visibility: visible;
-}
-.login .registration-card .email.error p,
-.login .registration-card .username.error p,
-.login .registration-card .password.error p,
-.login .registration-card .confirm-password.error p,
-.login .signin .email.error p,
-.login .signin .username.error p,
-.login .signin .password.error p,
-.login .signin .confirm-password.error p,
-.login #signin .email.error p,
-.login #signin .username.error p,
-.login #signin .password.error p,
-.login #signin .confirm-password.error p,
-.login .reset-card .email.error p,
-.login .reset-card .username.error p,
-.login .reset-card .password.error p,
-.login .reset-card .confirm-password.error p,
-.signup .registration-card .email.error p,
-.signup .registration-card .username.error p,
-.signup .registration-card .password.error p,
-.signup .registration-card .confirm-password.error p,
-.signup .signin .email.error p,
-.signup .signin .username.error p,
-.signup .signin .password.error p,
-.signup .signin .confirm-password.error p,
-.signup #signin .email.error p,
-.signup #signin .username.error p,
-.signup #signin .password.error p,
-.signup #signin .confirm-password.error p,
-.signup .reset-card .email.error p,
-.signup .reset-card .username.error p,
-.signup .reset-card .password.error p,
-.signup .reset-card .confirm-password.error p,
-.reset .registration-card .email.error p,
-.reset .registration-card .username.error p,
-.reset .registration-card .password.error p,
-.reset .registration-card .confirm-password.error p,
-.reset .signin .email.error p,
-.reset .signin .username.error p,
-.reset .signin .password.error p,
-.reset .signin .confirm-password.error p,
-.reset #signin .email.error p,
-.reset #signin .username.error p,
-.reset #signin .password.error p,
-.reset #signin .confirm-password.error p,
-.reset .reset-card .email.error p,
-.reset .reset-card .username.error p,
-.reset .reset-card .password.error p,
-.reset .reset-card .confirm-password.error p {
-  color: #e74c3c;
-}
-.login .registration-card .email.error input,
-.login .registration-card .username.error input,
-.login .registration-card .password.error input,
-.login .registration-card .confirm-password.error input,
-.login .signin .email.error input,
-.login .signin .username.error input,
-.login .signin .password.error input,
-.login .signin .confirm-password.error input,
-.login #signin .email.error input,
-.login #signin .username.error input,
-.login #signin .password.error input,
-.login #signin .confirm-password.error input,
-.login .reset-card .email.error input,
-.login .reset-card .username.error input,
-.login .reset-card .password.error input,
-.login .reset-card .confirm-password.error input,
-.signup .registration-card .email.error input,
-.signup .registration-card .username.error input,
-.signup .registration-card .password.error input,
-.signup .registration-card .confirm-password.error input,
-.signup .signin .email.error input,
-.signup .signin .username.error input,
-.signup .signin .password.error input,
-.signup .signin .confirm-password.error input,
-.signup #signin .email.error input,
-.signup #signin .username.error input,
-.signup #signin .password.error input,
-.signup #signin .confirm-password.error input,
-.signup .reset-card .email.error input,
-.signup .reset-card .username.error input,
-.signup .reset-card .password.error input,
-.signup .reset-card .confirm-password.error input,
-.reset .registration-card .email.error input,
-.reset .registration-card .username.error input,
-.reset .registration-card .password.error input,
-.reset .registration-card .confirm-password.error input,
-.reset .signin .email.error input,
-.reset .signin .username.error input,
-.reset .signin .password.error input,
-.reset .signin .confirm-password.error input,
-.reset #signin .email.error input,
-.reset #signin .username.error input,
-.reset #signin .password.error input,
-.reset #signin .confirm-password.error input,
-.reset .reset-card .email.error input,
-.reset .reset-card .username.error input,
-.reset .reset-card .password.error input,
-.reset .reset-card .confirm-password.error input {
-  border-color: #e74c3c;
-}
-.login .registration-card .email.error i.fa-exclamation-circle,
-.login .registration-card .username.error i.fa-exclamation-circle,
-.login .registration-card .password.error i.fa-exclamation-circle,
-.login .registration-card .confirm-password.error i.fa-exclamation-circle,
-.login .signin .email.error i.fa-exclamation-circle,
-.login .signin .username.error i.fa-exclamation-circle,
-.login .signin .password.error i.fa-exclamation-circle,
-.login .signin .confirm-password.error i.fa-exclamation-circle,
-.login #signin .email.error i.fa-exclamation-circle,
-.login #signin .username.error i.fa-exclamation-circle,
-.login #signin .password.error i.fa-exclamation-circle,
-.login #signin .confirm-password.error i.fa-exclamation-circle,
-.login .reset-card .email.error i.fa-exclamation-circle,
-.login .reset-card .username.error i.fa-exclamation-circle,
-.login .reset-card .password.error i.fa-exclamation-circle,
-.login .reset-card .confirm-password.error i.fa-exclamation-circle,
-.signup .registration-card .email.error i.fa-exclamation-circle,
-.signup .registration-card .username.error i.fa-exclamation-circle,
-.signup .registration-card .password.error i.fa-exclamation-circle,
-.signup .registration-card .confirm-password.error i.fa-exclamation-circle,
-.signup .signin .email.error i.fa-exclamation-circle,
-.signup .signin .username.error i.fa-exclamation-circle,
-.signup .signin .password.error i.fa-exclamation-circle,
-.signup .signin .confirm-password.error i.fa-exclamation-circle,
-.signup #signin .email.error i.fa-exclamation-circle,
-.signup #signin .username.error i.fa-exclamation-circle,
-.signup #signin .password.error i.fa-exclamation-circle,
-.signup #signin .confirm-password.error i.fa-exclamation-circle,
-.signup .reset-card .email.error i.fa-exclamation-circle,
-.signup .reset-card .username.error i.fa-exclamation-circle,
-.signup .reset-card .password.error i.fa-exclamation-circle,
-.signup .reset-card .confirm-password.error i.fa-exclamation-circle,
-.reset .registration-card .email.error i.fa-exclamation-circle,
-.reset .registration-card .username.error i.fa-exclamation-circle,
-.reset .registration-card .password.error i.fa-exclamation-circle,
-.reset .registration-card .confirm-password.error i.fa-exclamation-circle,
-.reset .signin .email.error i.fa-exclamation-circle,
-.reset .signin .username.error i.fa-exclamation-circle,
-.reset .signin .password.error i.fa-exclamation-circle,
-.reset .signin .confirm-password.error i.fa-exclamation-circle,
-.reset #signin .email.error i.fa-exclamation-circle,
-.reset #signin .username.error i.fa-exclamation-circle,
-.reset #signin .password.error i.fa-exclamation-circle,
-.reset #signin .confirm-password.error i.fa-exclamation-circle,
-.reset .reset-card .email.error i.fa-exclamation-circle,
-.reset .reset-card .username.error i.fa-exclamation-circle,
-.reset .reset-card .password.error i.fa-exclamation-circle,
-.reset .reset-card .confirm-password.error i.fa-exclamation-circle {
-  color: #e74c3c;
-  visibility: visible;
-}
-.login .registration-card .email input,
-.login .registration-card .username input,
-.login .registration-card .password input,
-.login .registration-card .confirm-password input,
-.login .signin .email input,
-.login .signin .username input,
-.login .signin .password input,
-.login .signin .confirm-password input,
-.login #signin .email input,
-.login #signin .username input,
-.login #signin .password input,
-.login #signin .confirm-password input,
-.login .reset-card .email input,
-.login .reset-card .username input,
-.login .reset-card .password input,
-.login .reset-card .confirm-password input,
-.signup .registration-card .email input,
-.signup .registration-card .username input,
-.signup .registration-card .password input,
-.signup .registration-card .confirm-password input,
-.signup .signin .email input,
-.signup .signin .username input,
-.signup .signin .password input,
-.signup .signin .confirm-password input,
-.signup #signin .email input,
-.signup #signin .username input,
-.signup #signin .password input,
-.signup #signin .confirm-password input,
-.signup .reset-card .email input,
-.signup .reset-card .username input,
-.signup .reset-card .password input,
-.signup .reset-card .confirm-password input,
-.reset .registration-card .email input,
-.reset .registration-card .username input,
-.reset .registration-card .password input,
-.reset .registration-card .confirm-password input,
-.reset .signin .email input,
-.reset .signin .username input,
-.reset .signin .password input,
-.reset .signin .confirm-password input,
-.reset #signin .email input,
-.reset #signin .username input,
-.reset #signin .password input,
-.reset #signin .confirm-password input,
-.reset .reset-card .email input,
-.reset .reset-card .username input,
-.reset .reset-card .password input,
-.reset .reset-card .confirm-password input {
-  border-color: black;
-  width: 100%;
-  height: 2rem;
-  outline: none;
-  background: none;
-  padding: 0.5em;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-.login .registration-card .email i,
-.login .registration-card .username i,
-.login .registration-card .password i,
-.login .registration-card .confirm-password i,
-.login .signin .email i,
-.login .signin .username i,
-.login .signin .password i,
-.login .signin .confirm-password i,
-.login #signin .email i,
-.login #signin .username i,
-.login #signin .password i,
-.login #signin .confirm-password i,
-.login .reset-card .email i,
-.login .reset-card .username i,
-.login .reset-card .password i,
-.login .reset-card .confirm-password i,
-.signup .registration-card .email i,
-.signup .registration-card .username i,
-.signup .registration-card .password i,
-.signup .registration-card .confirm-password i,
-.signup .signin .email i,
-.signup .signin .username i,
-.signup .signin .password i,
-.signup .signin .confirm-password i,
-.signup #signin .email i,
-.signup #signin .username i,
-.signup #signin .password i,
-.signup #signin .confirm-password i,
-.signup .reset-card .email i,
-.signup .reset-card .username i,
-.signup .reset-card .password i,
-.signup .reset-card .confirm-password i,
-.reset .registration-card .email i,
-.reset .registration-card .username i,
-.reset .registration-card .password i,
-.reset .registration-card .confirm-password i,
-.reset .signin .email i,
-.reset .signin .username i,
-.reset .signin .password i,
-.reset .signin .confirm-password i,
-.reset #signin .email i,
-.reset #signin .username i,
-.reset #signin .password i,
-.reset #signin .confirm-password i,
-.reset .reset-card .email i,
-.reset .reset-card .username i,
-.reset .reset-card .password i,
-.reset .reset-card .confirm-password i {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  visibility: hidden;
-}
-.login .registration-card .email button,
-.login .registration-card .username button,
-.login .registration-card .password button,
-.login .registration-card .confirm-password button,
-.login .signin .email button,
-.login .signin .username button,
-.login .signin .password button,
-.login .signin .confirm-password button,
-.login #signin .email button,
-.login #signin .username button,
-.login #signin .password button,
-.login #signin .confirm-password button,
-.login .reset-card .email button,
-.login .reset-card .username button,
-.login .reset-card .password button,
-.login .reset-card .confirm-password button,
-.signup .registration-card .email button,
-.signup .registration-card .username button,
-.signup .registration-card .password button,
-.signup .registration-card .confirm-password button,
-.signup .signin .email button,
-.signup .signin .username button,
-.signup .signin .password button,
-.signup .signin .confirm-password button,
-.signup #signin .email button,
-.signup #signin .username button,
-.signup #signin .password button,
-.signup #signin .confirm-password button,
-.signup .reset-card .email button,
-.signup .reset-card .username button,
-.signup .reset-card .password button,
-.signup .reset-card .confirm-password button,
-.reset .registration-card .email button,
-.reset .registration-card .username button,
-.reset .registration-card .password button,
-.reset .registration-card .confirm-password button,
-.reset .signin .email button,
-.reset .signin .username button,
-.reset .signin .password button,
-.reset .signin .confirm-password button,
-.reset #signin .email button,
-.reset #signin .username button,
-.reset #signin .password button,
-.reset #signin .confirm-password button,
-.reset .reset-card .email button,
-.reset .reset-card .username button,
-.reset .reset-card .password button,
-.reset .reset-card .confirm-password button {
-  margin: 0 auto;
-}
-
-.checkbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-input[type=checkbox] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkmark {
-  width: 1.75rem;
-  height: 1.75rem;
-  border: 2px solid black;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.checkmark::after {
-  content: "✓";
-  color: white;
-}
-
-input[type=checkbox]:checked + .checkmark {
-  background-color: black;
-}
-
-form label {
-  display: block;
-  text-align: left;
-  font-size: 0.75rem;
-  margin: 0.25em 0;
-}
-form input,
-form select {
-  border-color: black;
-  height: 2rem;
-  border: none;
-  outline: none;
-  background: none;
-  padding: 0.5rem;
-  border-radius: 5px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-form textarea {
-  border-color: black;
-  width: 100%;
-  min-height: 6rem;
-  height: fit-content;
-  overflow: hidden;
-  border: none;
-  outline: none;
-  background: none;
-  padding: 0.5em;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-
-.schedule {
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
-}
-.schedule .schedule-card {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-.schedule .schedule-card form {
-  display: grid;
-  grid-template-areas: "date date time" "email email phone" "name name name" "street street street" "city state zipcode";
-  gap: 1rem;
-}
-.schedule .schedule-card form input {
-  width: 100%;
-}
-.schedule .schedule-card form .date {
-  grid-area: date;
-}
-.schedule .schedule-card form .time {
-  grid-area: time;
-}
-.schedule .schedule-card form .name {
-  grid-area: name;
-}
-.schedule .schedule-card form .email {
-  grid-area: email;
-}
-.schedule .schedule-card form .phone {
-  grid-area: phone;
-}
-.schedule .schedule-card form .street {
-  grid-area: street;
-}
-.schedule .schedule-card form .city {
-  grid-area: city;
-}
-.schedule .schedule-card form .state {
-  grid-area: state;
-}
-.schedule .schedule-card form .zipcode {
-  grid-area: zipcode;
-}
-
-.payment {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  row-gap: 2rem;
-}
-.payment .payment-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.payment .payment-card .payment-options {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 1rem;
-}
-.payment .payment-card .debit-credit-container {
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card {
-  position: relative;
-  height: 250px;
-  width: 400px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: linear-gradient(45deg, blueviolet, deeppink);
-  border-radius: 5px;
-  backface-visibility: hidden;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  transform: perspective(1000px) rotateY(0deg);
-  transition: transform 0.4s ease-out;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .image {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 10px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .image img {
-  height: 50px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .card-number-box {
-  padding: 30px 0;
-  font-size: 22px;
-  color: #fff;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .flexbox {
-  display: flex;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .flexbox .box:nth-child(1) {
-  margin-right: auto;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .front .flexbox .box {
-  font-size: 15px;
-  color: #fff;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(45deg, blueviolet, deeppink);
-  border-radius: 5px;
-  padding: 20px 0;
-  text-align: right;
-  backface-visibility: hidden;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  transform: perspective(1000px) rotateY(180deg);
-  transition: transform 0.4s ease-out;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back .stripe {
-  background: #000;
-  width: 100%;
-  margin: 10px 0;
-  height: 50px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back .box {
-  padding: 0 20px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back .box span {
-  color: #fff;
-  font-size: 15px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back .box .cvv-box {
-  height: 50px;
-  padding: 10px;
-  margin-top: 5px;
-  color: #333;
-  background: #fff;
-  border-radius: 5px;
-  width: 100%;
-}
-.payment .payment-card .debit-credit-container .debit-credit-card .back .box img {
-  margin-top: 30px;
-  height: 30px;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form {
-  display: grid;
-  grid-template-areas: "number number number" "holder holder holder" "month year cvv";
-  gap: 1rem;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form input {
-  width: 100%;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form input.card-number-input {
-  grid-area: number;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form input.card-holder-input {
-  grid-area: holder;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form input.cvv-input {
-  grid-area: cvv;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form select.month-input {
-  grid-area: month;
-}
-.payment .payment-card .debit-credit-container .debit-credit-form select.year-input {
-  grid-area: year;
-}
-.payment .payment-card .wire-transfer-container {
-  flex-direction: column;
-  gap: 1rem;
-}
-.payment .payment-card .wire-transfer-container .bank-check {
-  padding: 0.5rem;
-  min-width: 32.3rem;
-  min-height: 12.3rem;
-  max-width: 970px;
-  max-height: 370px;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-logo {
-  text-align: left;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-number {
-  text-align: right;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-date {
-  text-align: right;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-pay-to-border {
-  border-bottom: #000 solid;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-pay-to-border .check-pay-to {
-  text-align: left;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-amount-box {
-  border: #000 solid;
-}
-.payment .payment-card .wire-transfer-container .bank-check .check-amount-box .check-amount {
-  text-align: right;
-}
-.payment .payment-card .wire-transfer-container .bank-check .amount-words-border {
-  border-bottom: #000 solid;
-}
-.payment .payment-card .wire-transfer-container .bank-check .amount-words-border .amount-words {
-  text-align: left;
-}
-.payment .payment-card .wire-transfer-container .bank-check .memo-border {
-  display: flex;
-  flex-direction: row;
-}
-.payment .payment-card .wire-transfer-container .bank-check .memo-border .memo {
-  border-bottom: #000 solid;
-  width: 100%;
-  text-align: left;
-  padding-left: 0.5rem;
-}
-.payment .payment-card .wire-transfer-container .bank-check .signature-border {
-  border-bottom: #000 solid;
-}
-.payment .payment-card .wire-transfer-container .bank-check .bank-numbers {
-  display: flex;
-  flex-direction: row;
-}
-.payment .payment-card .wire-transfer-container .bank-check .bank-numbers span {
-  padding-left: 0.5rem;
-}
-.payment .payment-card .wire-transfer-container .bank-check .bank-numbers span.routing-number:before {
-  content: "⑆";
-}
-.payment .payment-card .wire-transfer-container .bank-check .bank-numbers span.account-number:before {
-  content: "⑈";
-}
-.payment .payment-card .crypto-container {
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.mobile-container {
-  display: none;
-}
-.mobile-container.active {
-  display: flex;
-}
-
-.debit-credit-container {
-  display: none;
-}
-.debit-credit-container.active {
-  display: flex;
-}
-
-.wire-transfer-container {
-  display: none;
-}
-.wire-transfer-container.active {
-  display: flex;
-}
-
-.crypto-container {
-  display: none;
-}
-.crypto-container.active {
-  display: flex;
-}
-
-.content {
-  max-width: 1000px;
-  width: 90%;
-}
-
-.receipt {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
-}
-
 .gallery {
-  position: relative;
+  display: grid;
+  grid-template-areas: "LArrow View RArrow";
+  grid-template-columns: auto minmax(min-content, 1000px) auto;
+  column-gap: 0.5rem;
+  width: 100%;
+  height: 20rem;
+  justify-content: center;
+}
+.gallery .image-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  place-self: center;
+  width: fit-content;
+  height: inherit;
 }
-.gallery .wp-block-image {
-  margin: auto;
-  align-items: center;
-  justify-content: center;
+.gallery .image-card img {
+  max-width: 100%;
+  max-height: 100%;
 }
-.gallery .imageSelector .leftArrow {
+.gallery .leftArrow {
+  grid-area: LArrow;
   cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
   height: 100%;
-  width: 10%;
-  background-color: black;
-  opacity: 60%;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.gallery .imageSelector .leftArrow .arrow {
+.gallery .leftArrow .arrow {
   transform: rotate(90deg);
 }
-.gallery .imageSelector .rightArrow {
+.gallery .gallery-card.card {
+  grid-area: View;
+}
+.gallery .rightArrow {
+  grid-area: RArrow;
   cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   height: 100%;
-  width: 10%;
-  background-color: black;
-  opacity: 60%;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.gallery .imageSelector .rightArrow .arrow {
+.gallery .rightArrow .arrow {
   transform: rotate(-90deg);
-}
-
-table {
-  width: 100%;
-}
-table th,
-table td {
-  padding: 0.25rem;
-}
-table th {
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-table thead tr th h4.invoice-total-due, table thead tr th h4.invoice-total-due-number {
-  text-align: right;
-}
-table tbody tr td p {
-  font-size: 1.25rem;
-}
-table tbody tr td p.cost, table tbody tr td p.invoice-cost {
-  text-align: right;
-  letter-spacing: 0.25rem;
-}
-table tfoot tr th h4 {
-  text-align: right;
-}
-table tfoot tr td.invoice-tax-rate {
-  opacity: 0;
-}
-table tfoot tr td h4.invoice-subtotal, table tfoot tr td h4.invoice-tax-number {
-  text-align: right;
 }
 
 .list {
@@ -1529,44 +304,25 @@ table tfoot tr td h4.invoice-subtotal, table tfoot tr td h4.invoice-tax-number {
   row-gap: 2rem;
 }
 
-.social-icons {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0.5rem;
-  width: 100%;
-  max-width: 1000px;
-  box-shadow: var(--boxShadow);
-}
-.social-icons a img {
-  width: auto;
-  height: 3rem;
-}
-
-.member-card {
-  width: 25rem;
-}
-.member-card .member-title {
-  padding-bottom: 1rem;
-}
-
-.member-name {
-  padding: 1rem;
-}
-
-.member-social {
-  width: 50rem;
-}
-
-.team {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
 .photo-link {
   font-size: 0;
+}
+
+.logo a {
+  padding: 0.25rem;
+}
+.logo a img {
+  width: 100%;
+  max-width: 44rem;
+  height: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=main.css.map */

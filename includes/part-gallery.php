@@ -68,13 +68,17 @@ jQuery(document).ready(function($) {
 })
 </script>
 
-<div class="gallery card">
-    <?php echo get_post_gallery(get_the_ID()); ?>
+<div class="gallery">
 
     <div class="imageSelector" id="selector">
         <span class="selector leftArrow" id="leftArrow">
             <h2 class="arrow">V</h2>
         </span>
+
+        <div class="gallery-card card">
+            <?php echo get_post_gallery(get_the_ID()); ?>
+        </div>
+
         <span class="selector rightArrow" id="rightArrow">
             <h2 class="arrow">V</h2>
         </span>

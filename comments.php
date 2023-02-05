@@ -1,61 +1,28 @@
-<?php
-    if ( post_password_required($_post)) {
-        echo get_the_password_form();
-        echo "<p>Please signin to comment or reply.</p>";
-    } else {
-        echo "<p>Any furthur questions leave a comment or reply</p>";
-    }
+<?php if ( post_password_required() ) : ?>
 
-    //Get only the approved comments
-$args = array(
-    'post_id' => 8,
-    'status' => 'approve',
-    'reply_text' => 'Reply',
-    'avatar_size' => 64,
-    'format' => 'html5',
-    'short_ping' => true,
-    'title-reply' => '',
-    'echo' => true,
-);
+    <p>Please signin to comment or reply.</p>
+<?php endif ?>
 
-// The comment Query
-$comments_query = new WP_Comment_Query;
-$comments = $comments_query->query( $args );
-$comment_ID = get_comment_ID();
+    <p>Any furthur questions leave a comment or reply</p>
 
-// Comment Loop
-if ( $comments ) {
- foreach ( $comments as $comment ) { ?>
- <div class='comment-card card'>
+<?php if ( have_comments() ) : ?>
 
-    <header>
-        <div class="comment-author-avatar">
-            <?php echo get_avatar(get_the_author_meta( 'ID' ), 96); ?>
-        </div>
-        <h4 class="comment-author">
-            <?php echo get_comment_author(); ?>
-        </h4>
-        <h4 class="comment-date">
-           Commented on <?php echo get_comment_date(); ?>
-        </h4>
-        <h4 class="comment-time">
-            @ <?php echo get_comment_time( 'h:i:s A' ); ?>
-        </h4>
-    </header>
-    
-    <p class="comment-text">
-        <?php echo get_comment_text($comment); ?>
-    </p>
-    <footer>
+<ol class="comment-list card">
     <?php 
-        $args = array(
-            'title_reply' => ''
-        );
-        echo comment_form($args);
+    $args = array(
+        'style' => 'li',
+        'reverse_top_level' => true,
+        'avatar_size' => 64,
+        'format' => 'Html5'
+    ); 
+    
+    wp_list_comments($args);
     ?>
-    </footer>
- </div>
- <?php }
-} else {
- echo 'No comments found.';
-}?>
+</ol>
+<?php endif ?>
+
+<?php if ( !comments_open() && get_comments_number()) : ?>
+    
+    <p>Comments are closed.</p>
+
+<?php endif ?>

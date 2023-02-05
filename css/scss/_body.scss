@@ -14,9 +14,13 @@ body {
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   overflow: hidden;
   width: 100vw;
+  display: grid;
+  grid-template-areas: "Navigation" "Section" "Footer";
 }

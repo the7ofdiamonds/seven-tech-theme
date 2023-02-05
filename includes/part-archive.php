@@ -1,6 +1,28 @@
-<?php if( have_posts() ): while( have_posts() ): the_post();?>
-    <h3><?php the_title(); ?></h3>
-    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?>
-    </a>
-    <?php the_excerpt(); ?>
-<?php endwhile; else: endif;?>
+<div class="list">
+
+  <?php    
+    $posts = get_posts();
+
+    if ( $posts ) {
+
+      foreach($posts as $post) { 
+  ?>
+
+  <div class="post-card card">
+
+    <h3 class='post-name'><?php echo get_the_title($post->ID); ?></h3>
+
+    <div class="post-featured-image">
+      <a href="<?php the_permalink($post->ID); ?>"><?php echo get_the_post_thumbnail($post->ID); ?>
+      </a>
+    </div>
+
+    <div class="post-description-short">
+      <?php echo get_the_excerpt($post->ID); ?>
+    </div>
+  </div>
+  <?php
+      }
+    }
+  ?>
+</div>

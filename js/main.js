@@ -43,20 +43,8 @@ function getBillToForm() {
   
 }
 
-//Contact
+
 jQuery(function($) {
-  
-  $("#contact-form").submit(function(e){
-    var $to = get_option( 'admin_email' );
-    var $from = $("#contact-email").val();
-    var $subject = $("#subject").val();
-    var $message = $("#message").val();
-    var $headers = "Content-type: text/html";
-  
-    wp_mail( $to, $subject, $message, $headers );
-      
-        console.log($to);
-    
-        e.preventDefault();
-  });
+
+  $('.wp-block-group').addClass('card');
 });

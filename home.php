@@ -1,3 +1,6 @@
 <?php get_header(); ?>
-    <?php get_template_part('includes/section', 'archive'); ?>
+
+<section class="archive">
+	<?php get_template_part('includes/part', 'archive');?>
+</section>
 <?php get_footer(); ?>
