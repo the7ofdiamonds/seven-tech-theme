@@ -1,40 +1,32 @@
 <?php get_header(); ?>
 
-    <section class="tag">
+<section class="tag">
 
-        <div class="list">
+    <h2 class="title">
+        Matches for the tag: <?php echo single_tag_title('', false); ?>
+    </h2>
 
-        <?php
+    <?php
+    $args = array(
+        'post_type' => array('post', 'portfolio', 'services'),
+        'tag' => get_queried_object()->slug
+    );
 
-            $args = array(
-                'post_type' => array('post', 'portfolio'),
-                'tag' => get_queried_object()->slug
-                );
-        
-            $posts = get_posts($args);
+    $posts = get_posts($args);
 
-            if ( $posts ) {
+    if ($posts) {
 
-            foreach($posts as $post) { 
-        ?>
-
-        <div class="post-card card">
-
-            <h3 class='post-name'><?php echo get_the_title($post->ID); ?></h3>
-
-            <div class="post-featured-image">
-            <a href="<?php the_permalink($post->ID); ?>"><?php echo get_the_post_thumbnail($post->ID); ?>
-            </a>
-            </div>
-
-            <div class="post-description-short">
-            <?php echo get_the_excerpt($post->ID); ?>
-            </div>
+        foreach ($posts as $post) {
+            include get_template_directory() . '/includes/part-article.php';
+        }
+    } else {
+    ?>
+        <div class="card">
+            <p>There are no post with that tag.</p>
         </div>
-        <?php
-            }
-            }
-        ?>
-        </div>
-    </section>
+    <?php
+    }
+    ?>
+</section>
+
 <?php get_footer(); ?>

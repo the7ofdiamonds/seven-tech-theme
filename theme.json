@@ -1,0 +1,101 @@
+{
+    "name": "THE HOUSE FOREVER WINS",
+    "theme_supports": {
+        "custom_logo": true,
+        "title_tagline": true,
+        "post_formats": [
+            "aside",
+            "gallery",
+            "link",
+            "image",
+            "quote",
+            "status",
+            "video",
+            "audio",
+            "chat"
+        ]
+    },
+    "version": "1.0.0",
+    "stylesheet": "style.css",
+    "template": "index.php",
+    "description": "My fully customizable WordPress theme.",
+    "textdomain": "the-house-forever-wins",
+    "editor_style": "editor-style.css",
+    "tags": [
+        "one-column",
+        "two-columns",
+        "right-sidebar",
+        "flexible-header",
+        "accessibility-ready",
+        "custom-colors",
+        "custom-header",
+        "custom-menu",
+        "custom-logo",
+        "editor-style",
+        "featured-images",
+        "footer-widgets",
+        "post-formats",
+        "rtl-language-support",
+        "sticky-post",
+        "threaded-comments",
+        "translation-ready"
+    ],
+    "settings": {
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "Times New Roman,sans-serif",
+                    "slug": "heading",
+                    "name": "Heading Font"
+                },
+                {
+                    "fontFamily": "Anonymous Pro, monospace",
+                    "slug": "body",
+                    "name": "Body Font"
+                }
+            ]
+        },
+        "color": {
+            "palette": [
+                {
+                    "slug": "primary",
+                    "color": "#ffffff",
+                    "name": "Primary Color"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#000000",
+                    "name": "Secondary Color"
+                },
+                {
+                    "slug": "tertiary",
+                    "color": "red",
+                    "name": "Tertiary Color"
+                }
+            ]
+        },
+        "custom": {
+            "box": {
+                "shadow-bottom": ".5rem .5rem .5rem rgba(0, 0, 0, 0.07)",
+                "shadow-top": "-.5rem -.5rem .5rem rgba(0, 0, 0, 0.07)"
+            }
+        }
+    },
+    "styles": {
+        "color": {
+            "background": "#ffffff",
+            "text": "#000000"
+        }
+    },
+    "elements": {
+        "button": {
+            "background": "var(--wp--preset--color--secondary)",
+            "text": "var(--wp--preset--color--primary)"
+        },
+        "link": {
+            "color": {
+                "text": "var(--wp--preset--color--secondary)"
+            }
+        }
+    }
+}

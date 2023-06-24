@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<section class="archive">
-	<?php get_template_part('includes/part', 'archive');?>
-</section>
+<?php include get_template_directory() . '/includes/section-blog.php';?>
+
 <?php get_footer(); ?>

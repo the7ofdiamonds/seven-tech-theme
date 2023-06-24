@@ -1,9 +1,11 @@
-//Beginning _button.scss
-button {
+button,
+.search-submit {
   cursor: pointer;
   border: none;
-  padding: .5rem;
   width: fit-content;
   height: fit-content;
+
+  h3 {
+    padding: 0.25em;
+  }
 }
-//End _button.scss

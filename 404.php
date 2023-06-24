@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
 <section class="404">
-    <h1 class="title">Page Not Found</h1>
+    <h1 class="title failure">Page Not Found</h1>
+
+    <?php include get_template_directory() . '/includes/part-search-bar.php'; ?>
 
     <div class="card">
-        <p>You have reached this page in error. Use the above navigation to find what you are looking for you are welcome here.</p>
+        <p>The page you are looking for can not be found use the search bar above to find what you are looking for on this website.</p>
     </div>
 </section>
 <?php get_footer(); ?>

@@ -1,40 +1,32 @@
 <?php get_header(); ?>
 
-    <section class="category">
+<section class="category">
 
-        <div class="list">
+    <h2 class="title">
+        Matches for the category: <?php echo single_cat_title('', false); ?>
+    </h2>
 
-        <?php
+    <?php
+    $args = array(
+        'post_type' => array('post', 'portfolio', 'services'),
+        'category_name' => get_queried_object()->slug
+    );
 
-            $args = array(
-                'post_type' => array('post', 'portfolio'),
-                'category_name' => get_queried_object()->slug
-                );
-        
-            $posts = get_posts($args);
+    $posts = get_posts($args);
 
-            if ( $posts ) {
+    if ($posts) {
 
-            foreach($posts as $post) { 
-        ?>
-
-        <div class="post-card card">
-
-            <h3 class='post-name'><?php echo get_the_title($post->ID); ?></h3>
-
-            <div class="post-featured-image">
-            <a href="<?php the_permalink($post->ID); ?>"><?php echo get_the_post_thumbnail($post->ID); ?>
-            </a>
-            </div>
-
-            <div class="post-description-short">
-            <?php echo get_the_excerpt($post->ID); ?>
-            </div>
-        </div>
-        <?php
-            }
+        foreach ($posts as $post) {
+            include get_template_directory() . '/includes/part-article.php';
         }
-        ?>
+    } else {
+    ?>
+        <div class="card">
+            <p>There are no post in this category.</p>
         </div>
-    </section>
+    <?php
+    }
+    ?>
+</section>
+
 <?php get_footer(); ?>
