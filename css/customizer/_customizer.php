@@ -41,7 +41,7 @@ class THE_HOUSE_FOREVER_WINS_Customizer
 				--thfw-border-radius: 0.25em;
 				--thfw-box-shadow: 0 0 1em rgba(0, 0, 0, 0.85);
 				--thfw-box-shadow-hover: unset;
-				--thfw-box-shadow-input: inset 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.5);
+				--thfw-box-shadow-input: inset 0 0 0.5em rgba(0, 0, 0, 0.85);
 			}
 		</style>
 <?php

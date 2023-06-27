@@ -112,7 +112,7 @@ class THFW_Customizer_Shadow
 
             input[type=submit]:hover,
             button:hover {
-                box-shadow: var(--thfw-box-shadow-hover);
+                box-shadow: unset;
             }
 
             input,
