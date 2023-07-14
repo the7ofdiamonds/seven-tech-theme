@@ -4,7 +4,7 @@
 	include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
 
-	if (is_plugin_active('thfw/thfw.php')) {
+	if (is_plugin_active('thfw/THFW.php')) {
 		do_shortcode('[thfw-social-bar]');
 	}
 	?>

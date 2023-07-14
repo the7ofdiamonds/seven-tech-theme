@@ -1,0 +1,15 @@
+{
+  "name": "the-house-forever-wins",
+  "version": "1.0.0",
+  "description": "Wordpress Theme",
+  "main": "index.js",
+  "scripts": {
+    "sync": "browser-sync start -p 'http://localhost:8000'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "THE7OFDIAMONDS.TECH",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}
