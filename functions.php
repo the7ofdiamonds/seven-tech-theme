@@ -33,11 +33,3 @@ function thfw_register_menus()
 		)
 	);
 }
-
-add_filter('the_password_form', 'thfw_password_form');
-function thfw_password_form()
-{
-?>
-<h1>LOGIN</h1>
-   <?php
-}
