@@ -629,4 +629,23 @@ i {
   font-size: 1.5rem;
 }
 
+.status-bar.card {
+  background-color: black;
+}
+.status-bar.card span {
+  color: white;
+}
+.status-bar.card span.info {
+  color: blue;
+}
+.status-bar.card span.caution {
+  color: yellow;
+}
+.status-bar.card span.error {
+  color: red;
+}
+.status-bar.card span.success {
+  color: green;
+}
+
 /*# sourceMappingURL=main.css.map */

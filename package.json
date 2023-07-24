@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "sync": "browser-sync start -p 'http://localhost:8000'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-dev": "git push thfw-theme development",
+    "update-prod": "git push thfw-theme production",
+    "watch:sass": "sass --watch ./CSS/scss/main.scss ./CSS/main.css"
+
   },
   "author": "THE7OFDIAMONDS.TECH",
   "license": "ISC",
