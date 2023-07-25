@@ -4,16 +4,17 @@
   "description": "Wordpress Theme",
   "main": "index.js",
   "scripts": {
+    "dev": "npm-run-all --parallel sync watch:sass",
     "sync": "browser-sync start -p 'http://localhost:8000'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-dev": "git push thfw-theme development",
     "update-prod": "git push thfw-theme production",
     "watch:sass": "sass --watch ./CSS/scss/main.scss ./CSS/main.css"
-
   },
   "author": "THE7OFDIAMONDS.TECH",
   "license": "ISC",
   "dependencies": {
-    "browser-sync": "^2.29.3"
+    "browser-sync": "^2.29.3",
+    "npm-run-all": "^4.1.5"
   }
 }

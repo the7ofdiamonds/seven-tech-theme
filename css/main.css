@@ -83,6 +83,15 @@ header ul li {
   list-style: none;
   padding: 0.5rem;
 }
+header ul li:hover {
+  background-color: black;
+}
+header ul li:hover h3 {
+  color: white;
+}
+header h3 {
+  text-transform: uppercase;
+}
 header .header {
   display: grid;
   align-items: center;
@@ -161,6 +170,7 @@ header nav {
 header nav.is-active {
   display: flex;
   flex-direction: column;
+  gap: 0.75em;
   align-items: center;
   justify-content: center;
   opacity: 1;
@@ -228,7 +238,9 @@ button,
   width: fit-content;
   height: fit-content;
 }
+button h2,
 button h3,
+.search-submit h2,
 .search-submit h3 {
   padding: 0.25em;
 }
@@ -646,6 +658,29 @@ i {
 }
 .status-bar.card span.success {
   color: green;
+}
+
+button.sign.exit-sign {
+  background-color: white;
+  border: thick solid red;
+}
+button.sign.exit-sign h2,
+button.sign.exit-sign h3 {
+  color: red;
+}
+
+button.sign.enter-sign {
+  background-color: green;
+  border: thick solid white;
+}
+button.sign.enter-sign h2,
+button.sign.enter-sign h3 {
+  color: white;
+}
+
+header .leftSide .left-menu,
+header .rightSide .right-menu {
+  gap: 0.75em;
 }
 
 /*# sourceMappingURL=main.css.map */

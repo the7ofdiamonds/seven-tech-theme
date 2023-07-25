@@ -29,7 +29,18 @@ header {
       width: 100%;
       list-style: none;
       padding: 0.5rem;
+
+      &:hover {
+        background-color: black;
+        h3 {
+          color: white;
+        }
+      }
     }
+  }
+
+  h3 {
+    text-transform: uppercase;
   }
 
   .header {
@@ -120,10 +131,11 @@ header {
     overflow: scroll;
     width: 100%;
     padding: 0.5em;
-    
+
     &.is-active {
       display: flex;
       flex-direction: column;
+      gap: 0.75em;
       align-items: center;
       justify-content: center;
       opacity: 1;

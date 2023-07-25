@@ -1,0 +1,21 @@
+button.sign {
+  &.exit-sign {
+    background-color: white;
+    border: thick solid red;
+    h2,
+    h3 {
+      color: red;
+    }
+  }
+}
+
+button.sign {
+  &.enter-sign {
+    background-color: green;
+    border: thick solid white;
+    h2,
+    h3 {
+      color: white;
+    }
+  }
+}
