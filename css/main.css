@@ -660,27 +660,66 @@ i {
   color: green;
 }
 
+button.sign {
+  padding: 0.25em;
+  box-shadow: var(--orb-box-shadow-btn);
+}
 button.sign.exit-sign {
   background-color: white;
-  border: thick solid red;
+  border: 0.25em solid red;
 }
 button.sign.exit-sign h2,
 button.sign.exit-sign h3 {
   color: red;
 }
-
 button.sign.enter-sign {
   background-color: green;
-  border: thick solid white;
+  border: 0.25em solid white;
 }
 button.sign.enter-sign h2,
 button.sign.enter-sign h3 {
   color: white;
 }
 
+@media screen and (min-width: 1200px) {
+  button.sign {
+    box-shadow: unset;
+  }
+  button.sign.enter-sign, button.sign.exit-sign {
+    background-color: unset;
+    border: none;
+  }
+  button.sign.enter-sign h2,
+button.sign.enter-sign h3, button.sign.exit-sign h2,
+button.sign.exit-sign h3 {
+    color: black;
+  }
+
+  button.sign:hover {
+    padding: 0.25em;
+    box-shadow: var(--orb-box-shadow-btn);
+  }
+  button.sign:hover.exit-sign {
+    background-color: white;
+    border: 0.25em solid red;
+  }
+  button.sign:hover.exit-sign h2,
+button.sign:hover.exit-sign h3 {
+    color: red;
+  }
+  button.sign:hover.enter-sign {
+    background-color: green;
+    border: 0.25em solid white;
+  }
+  button.sign:hover.enter-sign h2,
+button.sign:hover.enter-sign h3 {
+    color: white;
+  }
+}
 header .leftSide .left-menu,
 header .rightSide .right-menu {
   gap: 0.75em;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
