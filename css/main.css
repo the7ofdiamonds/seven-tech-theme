@@ -397,6 +397,9 @@ main {
   gap: 1rem;
   padding: 0 1rem;
 }
+main.error {
+  margin-top: -5rem;
+}
 
 .comment-card.card {
   position: relative;
