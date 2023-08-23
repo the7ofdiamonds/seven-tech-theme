@@ -647,20 +647,20 @@ i {
 .status-bar.card {
   background-color: black;
 }
+.status-bar.card.info {
+  background-color: blue;
+}
+.status-bar.card.caution {
+  background-color: yellow;
+}
+.status-bar.card.error {
+  background-color: red;
+}
+.status-bar.card.success {
+  background-color: green;
+}
 .status-bar.card span {
   color: white;
-}
-.status-bar.card span.info {
-  color: blue;
-}
-.status-bar.card span.caution {
-  color: yellow;
-}
-.status-bar.card span.error {
-  color: red;
-}
-.status-bar.card span.success {
-  color: green;
 }
 
 button.sign {
