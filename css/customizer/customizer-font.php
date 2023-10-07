@@ -104,6 +104,7 @@ class THFW_Customizer_Font
             h2,
             h3,
             h4,
+            h5,
             label {
                 font-family: <?php if (!get_theme_mod('heading_font_family')) {
                                     echo 'var(--thfw-font-heading)';

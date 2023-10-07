@@ -29,7 +29,7 @@
             array(
               'menu' => 'Left Menu',
               'theme_location' => 'left-menu',
-              'link_before' => '<h3>',
+              'link_before' => "<h3 class='title'>",
               'link_after' => '</h3>'
             )
           );
@@ -44,7 +44,8 @@
       <div class="rightSide">
         <span class="hamburger" id="toggle" onclick="toggleMenu()">
           <h1 class="top" id="dropdown">I</h1>
-          <h1 class="middle" id="middle">I</h1>
+          <h1 class="middle-left" id="middle_left">I</h1>
+          <h1 class="middle-right" id="middle_right">I</h1>
           <h1 class="bottom" id="dropdown">I</h1>
         </span>
 
@@ -54,21 +55,11 @@
             array(
               'menu' => 'Right Menu',
               'theme_location' => 'right-menu',
-              'link_before' => '<h3>',
+              'link_before' => "<h3 class='title'>",
               'link_after' => '</h3>'
             )
           );
           ?>
-
-          <?php if (is_user_logged_in()) : ?>
-            <button class="sign exit-sign" onclick="window.location.href='/logout';">
-              <h3>EXIT</h3>
-            </button>
-          <?php else : ?>
-            <button class="sign enter-sign" onclick="window.location.href='/login';">
-              <h3>ENTER</h3>
-            </button>
-          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -79,19 +70,10 @@
         array(
           'menu' => 'Mobile',
           'theme_location' => 'mobile-menu',
-          'link_before' => '<h2>',
+          'link_before' => "<h2 class='title'>",
           'link_after' => '</h2>'
         )
       );
       ?>
-      <?php if (is_user_logged_in()) : ?>
-        <button class="sign exit-sign" onclick="window.location.href='/logout';">
-          <h2>EXIT</h2>
-        </button>
-      <?php else : ?>
-        <button class="sign enter-sign" onclick="window.location.href='/login';">
-          <h2>ENTER</h2>
-        </button>
-      <?php endif; ?>
     </nav>
   </header>
