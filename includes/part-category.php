@@ -1,19 +1,20 @@
 <div class="post-category">
+    <?php
+    global $post;
 
-     <?php
-     $terms = get_the_terms($post->ID, 'category');
+    $terms = get_the_terms($post->ID, 'category');
+    error_log(print_r($terms, true));
 
-
-     if (!is_wp_error($terms)) :
-
-          foreach ($terms as $term) :
-               $termlink = get_term_link($term);
-     ?>
-               <h3 class="category-name">
-                    <a class="category-link" href="<?php echo $termlink; ?>">
-                         <?php echo $term->name; ?>
-                    </a>
-               </h3>
-     <?php endforeach;
-     endif; ?>
+    if (!empty($terms) && !is_wp_error($terms)) :
+        foreach ($terms as $term) :
+            $termlink = get_term_link($term);
+            if (!is_wp_error($termlink)) :
+            ?>
+                <a class="category-link" href="<?php echo esc_url($termlink); ?>">
+                    <?php echo esc_html($term->name); ?>
+                </a>
+            <?php endif;
+        endforeach;
+    endif;
+    ?>
 </div>
