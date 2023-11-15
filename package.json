@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel sync watch:sass",
-    "sync": "browser-sync start -p 'http://localhost:8000'",
+    "sync": "browser-sync start --proxy 'http://192.168.1.170:8000' --files '**/*.html, **/*.css, **/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-dev": "git push thfw-theme development",
     "update-prod": "git push thfw-theme production",

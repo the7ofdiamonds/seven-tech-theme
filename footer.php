@@ -4,8 +4,8 @@
 	include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
 
-	if (is_plugin_active('thfw/THFW.php')) {
-		do_shortcode('[thfw-social-bar]');
+	if (is_plugin_active('seven-tech/SEVEN_TECH.php')) {
+		do_shortcode('[seven-tech-social-bar]');
 	}
 	?>
 

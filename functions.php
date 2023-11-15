@@ -6,6 +6,7 @@ new THE_HOUSE_FOREVER_WINS_CSS;
 new THE_HOUSE_FOREVER_WINS_JS;
 
 //Custom Theme Support
+add_theme_support('customizer');
 add_theme_support('title-tag');
 add_theme_support('html5', array(
 	'comment-list',

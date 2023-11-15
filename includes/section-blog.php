@@ -1,20 +1,21 @@
 <section class='blog'>
-		<?php
-		$args = array(
-			'post_type' => ['post']
-		);
-		$posts = get_posts($args);
+    <?php
+    // Get all registered post types
+    $post_types = get_post_types(['public' => true], 'objects');
 
+    foreach ($post_types as $post_type) {
+        $args = array(
+            'post_type' => $post_type->name,
+        );
 
-		if ($posts) {
+        $posts = get_posts($args);
 
-			foreach ($posts as $post) {
-		?>
-
-				<?php include get_template_directory() . '/includes/part-article.php'; ?>
-
-		<?php
-			}
-		}
-		?>
+        if ($posts) {
+            foreach ($posts as $post) {
+                // Include your template part here
+                include get_template_directory() . '/includes/part-article.php';
+            }
+        }
+    }
+    ?>
 </section>

@@ -141,14 +141,6 @@ class THFW_Customizer_Border_Radius
                                 } ?>;
             }
 
-            .card:hover {
-                border-radius: <?php if (!get_theme_mod('card_border_radius_hover')) {
-                                    echo 'var(--thfw-border-radius)';
-                                } else {
-                                    echo esc_html(get_theme_mod('card_border_radius_hover'));
-                                } ?>;
-            }
-
             input,
             textarea {
                 border-radius: <?php if (!get_theme_mod('input_border_radius')) {
