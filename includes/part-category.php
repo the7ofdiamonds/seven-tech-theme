@@ -3,7 +3,6 @@
     global $post;
 
     $terms = get_the_terms($post->ID, 'category');
-    error_log(print_r($terms, true));
 
     if (!empty($terms) && !is_wp_error($terms)) :
         foreach ($terms as $term) :
