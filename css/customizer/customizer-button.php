@@ -115,8 +115,6 @@ class THFW_Customizer_Buttons
             }
             
             input[type=submit],
-            button:hover,
-            .button:hover,
             .search-submit:hover {
                 background-color: <?php if (!get_theme_mod('button_background_hover_color')) {
                                         echo 'var(--thfw-color-secondary)';

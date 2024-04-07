@@ -11,7 +11,9 @@
 
         if ($posts) {
             foreach ($posts as $post) {
-                include get_template_directory() . '/includes/part-article.php';
+                if ($post->post_type != 'page') {
+                    include get_template_directory() . '/includes/part-article.php';
+                }
             }
         }
     }

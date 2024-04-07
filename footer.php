@@ -2,9 +2,8 @@
 
 	<?php
 	include_once(ABSPATH . 'wp-admin/includes/plugin.php');
-
-
-	if (is_plugin_active('seven-tech/SEVEN_TECH.php')) {
+	
+	if (is_plugin_active('seven-tech-communications/SEVEN_TECH_Communications.php')) {
 		do_shortcode('[seven-tech-social-bar]');
 	}
 	?>
