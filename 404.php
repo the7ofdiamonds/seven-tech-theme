@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="404">
+<section class="page-404">
     <h1 class="title failure">Page Not Found</h1>
 
     <?php include get_template_directory() . '/includes/part-search-bar.php'; ?>
