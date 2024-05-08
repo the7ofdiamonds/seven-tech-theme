@@ -23,6 +23,10 @@
     <div class="header">
       <div class="leftSide">
 
+        <div class="auth">
+          <?php get_template_part('includes/part', 'auth'); ?>
+        </div>
+
         <div class="left-menu" id="left-menu">
           <?php
           wp_nav_menu(

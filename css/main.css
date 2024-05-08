@@ -111,8 +111,15 @@ header .header {
   height: 4rem;
   overflow: hidden;
 }
+header .header .leftSide,
+header .header .rightSide {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 header .header .leftSide {
-  grid-area: LeftSide;
+  display: none;
 }
 header .header .leftSide .left-menu {
   display: none;
@@ -123,7 +130,6 @@ header .header .center {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
   height: 4rem;
 }
 header .header .center .logo {
@@ -136,10 +142,6 @@ header .header .center .logo {
 header .header .rightSide {
   grid-area: RightSide;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
 }
 header .header .rightSide .hamburger {
   cursor: pointer;
@@ -240,10 +242,11 @@ header nav .menu-top-container .menu {
 @media screen and (min-width: 700px) {
   header .header {
     grid-template-areas: "LeftSide Center RightSide";
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 150px auto 150px;
   }
-  header .header .center {
-    max-width: 1000px;
+  header .header .leftSide {
+    grid-area: LeftSide;
+    display: flex;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -257,12 +260,16 @@ header nav .menu-top-container .menu {
     overflow: hidden;
   }
   header .header .leftSide {
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
+  }
+  header .header .leftSide .auth {
+    display: none;
   }
   header .header .leftSide .left-menu {
     display: flex;
+  }
+  header .header .center {
+    max-width: 1000px;
   }
   header .header .rightSide {
     justify-content: flex-start;
@@ -669,57 +676,62 @@ i {
 button.sign {
   padding: 0.25em;
   box-shadow: var(--orb-box-shadow-btn);
+  animation: sign 2s infinite alternate;
 }
-button.sign.exit-sign {
-  background-color: white;
-  border: 0.25em solid red;
+
+button.sign:hover {
+  box-shadow: none;
 }
-button.sign.exit-sign h2,
-button.sign.exit-sign h3 {
-  color: red;
+button.sign:hover.start-sign i {
+  color: green;
 }
-button.sign.enter-sign {
+button.sign:hover.start-sign h2,
+button.sign:hover.start-sign h3 {
+  color: green;
+}
+button.sign:hover.enter-sign {
   background-color: green;
   border: 0.25em solid white;
 }
-button.sign.enter-sign h2,
-button.sign.enter-sign h3 {
+button.sign:hover.enter-sign h2,
+button.sign:hover.enter-sign h3 {
   color: white;
 }
-
-@media screen and (min-width: 1200px) {
-  button.sign {
-    box-shadow: unset;
-  }
-  button.sign.enter-sign, button.sign.exit-sign {
-    background-color: unset;
-    border: none;
-  }
-  button.sign.enter-sign h2,
-button.sign.enter-sign h3, button.sign.exit-sign h2,
-button.sign.exit-sign h3 {
-    color: black;
-  }
-
-  button.sign:hover {
-    padding: 0.25em;
-    box-shadow: var(--orb-box-shadow-btn);
-  }
-  button.sign:hover.exit-sign {
-    background-color: white;
-    border: 0.25em solid red;
-  }
-  button.sign:hover.exit-sign h2,
+button.sign:hover.exit-sign {
+  background-color: white;
+  border: 0.25em solid red;
+}
+button.sign:hover.exit-sign h2,
 button.sign:hover.exit-sign h3 {
-    color: red;
+  color: red;
+}
+
+@keyframes start {
+  0% {
+    background-color: black;
   }
-  button.sign:hover.enter-sign {
+  100% {
     background-color: green;
+    color: white;
     border: 0.25em solid white;
   }
-  button.sign:hover.enter-sign h2,
-button.sign:hover.enter-sign h3 {
+}
+@keyframes enter {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: green;
+  }
+}
+@keyframes exit {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: red;
     color: white;
+    border: 0.25em solid white;
   }
 }
 header .leftSide .left-menu,

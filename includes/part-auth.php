@@ -4,6 +4,6 @@
     </button>
 <?php else : ?>
     <button class="sign enter-sign" onclick="window.location.href='/login';">
-        <h3>ENTER</h3>
+        <h3>START</h3>
     </button>
 <?php endif; ?>
