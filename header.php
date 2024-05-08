@@ -43,10 +43,11 @@
 
       <div class="rightSide">
         <span class="hamburger" id="toggle" onclick="toggleMenu()">
-          <h1 class="top" id="dropdown">I</h1>
-          <h1 class="middle-left" id="middle_left">I</h1>
-          <h1 class="middle-right" id="middle_right">I</h1>
-          <h1 class="bottom" id="dropdown">I</h1>
+          <h1 class="top" id="open">I</h1>
+          <h1 class="middle" id="open">I</h1>
+          <h1 class="bottom" id="open">I</h1>
+
+          <h1 class="close" id="close">X</h1>
         </span>
 
         <div class="right-menu" id="right-menu">

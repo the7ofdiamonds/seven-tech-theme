@@ -1,15 +1,16 @@
 //Header
 function toggleMenu() {
-  var dropdown = document.querySelectorAll('#dropdown');
-  var middleRight = document.querySelector('#middle_right');
-  var middleLeft = document.querySelector('#middle_left');
+  var dropdown = document.querySelector('#dropdown');
+  var open = document.querySelectorAll('#open');
+  var close = document.querySelector('#close');
 
-  middleRight.classList.toggle('not-active');
-  middleLeft.classList.toggle('not-active');
+  close.classList.toggle('is-active');
 
-  dropdown.forEach(function (btn) {
-    btn.classList.toggle('is-active');
+  open.forEach(function (btn) {
+    btn.classList.toggle('not-active');
   });
+
+  dropdown.classList.toggle('is-active');
 };
 
 
