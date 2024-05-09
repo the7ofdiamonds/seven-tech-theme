@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .leftSide {
+    display: none;
+  }
+
+  .center{
+    max-width: 400px;
+  }
+}
+
+

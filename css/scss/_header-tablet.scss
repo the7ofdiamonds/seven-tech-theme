@@ -1,0 +1,14 @@
+@media screen and (min-width: 700px) {
+    header {
+      .header {
+        display: grid;
+        grid-template-areas: 'LeftSide Center RightSide';
+        grid-template-columns: 150px auto 150px;
+  
+        .leftSide {
+          grid-area: LeftSide;
+          display: flex;
+        }
+      }
+    }
+  }

@@ -21,6 +21,12 @@ add_theme_support('widgets');
 add_theme_support('automatic-feed-links');
 add_theme_support('post-thumbnails', ['post', 'page', 'custom-post-type']);
 
+function allow_svg_upload( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'allow_svg_upload' );
+
 //Register Nav Menus
 add_action('init', 'thfw_register_menus');
 function thfw_register_menus()
