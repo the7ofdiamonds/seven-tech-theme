@@ -1,14 +1,30 @@
 @media screen and (min-width: 700px) {
-    header {
-      .header {
-        display: grid;
-        grid-template-areas: 'LeftSide Center RightSide';
-        grid-template-columns: 150px auto 150px;
-  
-        .leftSide {
-          grid-area: LeftSide;
-          display: flex;
+  header {
+    .header {
+      justify-content: space-evenly;
+      // grid-template-areas: 'LeftSide Center RightSide';
+      // grid-template-columns: 150px auto 150px;
+
+      .leftSide,
+      .rightSide {
+        width: 11rem;
+      }
+
+      .leftSide {
+        grid-area: LeftSide;
+        display: flex;
+        position: relative;
+        justify-content: end;
+
+        .auth {
+          position: absolute;
+          left: 1rem;
         }
+      }
+
+      .center {
+        width: 100%;
       }
     }
   }
+}

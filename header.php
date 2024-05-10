@@ -46,13 +46,11 @@
       </div>
 
       <div class="rightSide">
-        <span class="hamburger" id="toggle" onclick="toggleMenu()">
-          <h1 class="top" id="open">I</h1>
-          <h1 class="middle" id="open">I</h1>
-          <h1 class="bottom" id="open">I</h1>
+        <div class="hamburger" id="toggle" onclick="toggleMenu()">
+          <h1 class="top" id="open">III</h1>
 
           <h1 class="close" id="close">X</h1>
-        </span>
+        </div>
 
         <div class="right-menu" id="right-menu">
           <?php

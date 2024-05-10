@@ -1,7 +1,8 @@
 @use './variables';
-// @use './_header-mobile.scss';
+@use './_header-mobile.scss';
+@use '_hamburger-menu.scss';
 @use './_header-tablet.scss';
-// @use './_header-desktop.scss';
+@use './_header-desktop.scss';
 
 header {
   grid-area: Navigation;
@@ -10,7 +11,8 @@ header {
   z-index: 1000;
   width: 100vw;
   opacity: 0.85;
-  padding: 0.25rem;
+  padding: 0.25rem 0;
+  overflow: auto;
 
   a {
     text-decoration: none;
@@ -45,6 +47,7 @@ header {
   }
 
   .header {
+    display: flex;
     width: 100%;
     height: 4rem;
     overflow: hidden;
@@ -67,12 +70,13 @@ header {
       align-items: center;
       justify-content: center;
       height: 4rem;
+      padding: 0 1rem;
 
       .logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: auto;
         height: 100%;
       }
     }
@@ -80,70 +84,9 @@ header {
     .rightSide {
       grid-area: RightSide;
       display: flex;
-      justify-content: center;
+      justify-content: end;
+      position: relative;
       width: 100%;
-
-      .hamburger {
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 100%;
-        position: relative;
-      }
-
-      h1 {
-        position: absolute;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        letter-spacing: unset;
-        transform: rotate(90deg);
-        animation: hamburger 1.5s ease-in alternate;
-      }
-
-      .top {
-        top: 0;
-
-        &.not-active {
-          opacity: 0;
-          animation: none;
-        }
-      }
-
-      .middle {
-        &.not-active {
-          opacity: 0;
-          animation: none;
-        }
-      }
-
-      h1.close {
-        font-family: Roboto;
-        opacity: 0;
-        transform: none;
-        animation: none;
-
-        &.is-active {
-          opacity: 1;
-          animation: hamburger 1.5s infinite alternate;
-        }
-      }
-
-      .bottom {
-        bottom: 0;
-
-        &.not-active {
-          opacity: 0;
-          animation: none;
-        }
-      }
-
-      .right-menu {
-        display: none;
-      }
     }
   }
 
