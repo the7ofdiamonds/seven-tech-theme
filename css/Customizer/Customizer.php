@@ -1,13 +1,7 @@
 <?php
-include 'customizer-header.php';
-include 'customizer-font.php';
-include 'customizer-card.php';
-include 'customizer-button.php';
-include 'customizer-shadow.php';
-include 'customizer-border-radius.php';
-include 'customizer-footer.php';
+namespace SEVEN_TECH\CSS\Customizer;
 
-class THE_HOUSE_FOREVER_WINS_Customizer
+class Customizer
 {
 	public function __construct()
 	{
@@ -15,13 +9,7 @@ class THE_HOUSE_FOREVER_WINS_Customizer
 		add_theme_support("custom-background");
 		add_action('wp_head', [$this, 'load_css']);
 
-		new THFW_Customizer_Header();
-		new THFW_Customizer_Card();
-		new THFW_Customizer_Buttons();
-		new THFW_Customizer_Font();
-		new THFW_Customizer_Border_Radius();
-		new THFW_Customizer_Shadow();
-		new THFW_Customizer_Footer();
+		
 	}
 
 	function load_css()

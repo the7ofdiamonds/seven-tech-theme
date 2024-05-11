@@ -1,5 +1,9 @@
 <?php
-class THFW_Customizer_Shadow
+namespace SEVEN_TECH\CSS\Customizer;
+
+use WP_Customize_Color_Control;
+
+class Shadow
 {
 
     public function __construct()

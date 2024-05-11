@@ -1,0 +1,19 @@
+{
+    "name": "the7ofdiamonds/seven-tech",
+    "description": "Wordpress Theme",
+    "type": "project",
+    "authors": [
+        {
+            "name": "THE7OFDIAMONDS.TECH"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SEVEN_TECH\\": ""
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
