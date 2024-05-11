@@ -1,5 +1,5 @@
 {
-    "name": "THE HOUSE FOREVER WINS",
+    "name": "SEVEN TECH",
     "theme_supports": {
         "custom_logo": true,
         "title_tagline": true,
@@ -19,7 +19,7 @@
     "stylesheet": "style.css",
     "template": "index.php",
     "description": "My fully customizable WordPress theme.",
-    "textdomain": "the-house-forever-wins",
+    "textdomain": "seven-tech",
     "editor_style": "editor-style.css",
     "tags": [
         "one-column",

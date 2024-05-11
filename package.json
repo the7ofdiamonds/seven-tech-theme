@@ -1,5 +1,5 @@
 {
-  "name": "the-house-forever-wins",
+  "name": "seven-tech-theme",
   "version": "1.0.0",
   "description": "Wordpress Theme",
   "main": "index.js",
@@ -7,11 +7,11 @@
     "dev": "npm-run-all --parallel sync watch:sass",
     "sync": "browser-sync start --proxy 'http://192.168.1.170:8000' --files '**/*.html, **/*.css, **/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-dev": "git push thfw-theme development",
-    "update-prod": "git push thfw-theme production",
+    "update-dev": "git push seven-tech-theme development",
+    "update-prod": "git push seven-tech-theme production",
     "watch:sass": "sass --watch ./CSS/scss/main.scss ./CSS/main.css"
   },
-  "author": "THE7OFDIAMONDS.TECH",
+  "author": "Jamel C. Lyons <jclyonsenterprises@gmail.com>, THE7OFDIAMONDS.TECH",
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.29.3",

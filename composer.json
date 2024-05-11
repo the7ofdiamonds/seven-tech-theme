@@ -1,10 +1,19 @@
 {
-    "name": "the7ofdiamonds/seven-tech",
+    "name": "the7ofdiamonds/seven-tech-theme",
     "description": "Wordpress Theme",
     "type": "project",
     "authors": [
         {
-            "name": "THE7OFDIAMONDS.TECH"
+            "name": "Jamel C. Lyons",
+            "email": "jclyonsenterprises@gmail.com",
+            "homepage": "https://the7ofdiamonds.tech/founders/jamelclyons",
+            "role": "Developer"
+        },
+        {
+            "name": "THE7OFDIAMONDS.TECH",
+            "email": "jclyonsenterprises@gmail.com",
+            "homepage": "https://the7ofdiamonds.tech",
+            "role": "Maintainer"
         }
     ],
     "require": {},
