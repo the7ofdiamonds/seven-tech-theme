@@ -20,7 +20,7 @@ class User
             'full_name' => "{$user_data->first_name} {$user_data->last_name}",
             'email' => $user_data->user_email,
             'bio' => get_the_author_meta('description', $id),
-            'user_url' => "/{$user_data->user_nicename}",
+            'user_url' => "/author/{$user_data->user_nicename}",
             'avatar_url' => $avatar_url == false ? '' : $avatar_url,
         );
 

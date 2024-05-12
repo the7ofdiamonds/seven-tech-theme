@@ -602,6 +602,10 @@ label {
   padding: 0.375rem;
 }
 
+section.tags {
+  margin: 6rem 0;
+}
+
 .tag-list {
   display: flex;
   flex-direction: row;
@@ -623,6 +627,10 @@ label {
   border-radius: 1.5em;
 }
 
+section.category {
+  margin: 6rem 0;
+}
+
 .post-category {
   display: flex;
   flex-direction: row;
@@ -638,59 +646,73 @@ label {
   text-decoration: none;
 }
 
-.user-card.card {
-  max-width: 750px;
-  gap: 0.375rem;
-  padding: 0 0 0.75em;
+section.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 6rem 0;
+  flex-wrap: wrap;
 }
-.user-card.card .left,
-.user-card.card .right {
+section.author div.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+section.author div.author .author-info {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
-  width: 100%;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
-.user-card.card .left .user-pic {
-  width: 100%;
+section.author div.author .author-bio {
+  width: fit-content;
 }
-.user-card.card .left .user-pic a {
+
+.author-pic {
+  width: auto;
+  padding: 0;
   font-size: 0;
 }
-.user-card.card .left .user-pic a img {
-  width: 100%;
-  height: auto;
-}
-.user-card.card .left h3 {
-  font-weight: 700;
-}
-.user-card.card .left h4 {
-  background-color: black;
-  color: white;
-  width: 100%;
-  padding: 0.5em;
-}
-.user-card.card .right .user-bio {
-  display: flex;
-  align-items: flex-start;
+.author-pic img {
+  width: auto;
   height: 100%;
-  padding: 0.375rem;
 }
-.user-card.card .right .user-bio p {
+
+.author-card.card {
+  gap: 0.374rem;
+  height: fit-content;
+  padding: 0;
+  max-width: 500px;
+}
+.author-card.card .author-role,
+.author-card.card .author-bio,
+.author-card.card .author-contact {
+  width: 100%;
+  padding: 0.5rem;
+}
+.author-card.card .author-role h5 {
+  text-transform: capitalize;
+}
+.author-card.card p {
   text-align: left;
   height: 100%;
 }
-.user-card.card .right button {
-  align-self: center;
+.author-card.card .author-contact button {
+  background-color: white;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+.author-card.card .author-contact button i {
+  color: black;
 }
 
-@media screen and (min-width: 700px) {
-  .user-card.card {
-    display: grid;
-    grid-template-areas: "left right";
-    grid-template-columns: 1fr 2fr;
-  }
-}
 details summary {
   display: flex;
   justify-content: center;

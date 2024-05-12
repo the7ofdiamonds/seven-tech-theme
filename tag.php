@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="tag">
+<section class="tags">
 
     <h2 class="title">
         Matches for the tag: <?php echo single_tag_title('', false); ?>
