@@ -2,29 +2,81 @@
 
 namespace SEVEN_TECH\User;
 
+use SEVEN_TECH\Router\Router;
+use SEVEN_TECH\Roles\Roles;
+
 class User
 {
+    private $router;
+    private $roles;
 
-    public function getUser($id)
+    public function __construct()
     {
-        $user_data = get_userdata($id);
+        $this->router = new Router;
+        $this->roles = new Roles;
+    }
 
-        if ($user_data == false) {
-            return '';
+    public function getUser($id, $full_name = '', $email = '', $role = '', $user_url = '')
+    {
+        if (empty($full_name) || empty($email) || empty($role) || empty($user_url)) {
+            $user_data = get_userdata($id);
+
+            if ($user_data == false) {
+                return '';
+            }
+
+            $full_name = "{$user_data->first_name} {$user_data->last_name}";
+            $email = $user_data->user_email;
+            $ordered_roles = $this->roles->getOrderedRoles($user_data->roles);
+            $roles = $this->roles->getRoleDisplayNames($ordered_roles);
+
+            $role = $roles[0];
+            $nicename = $user_data->user_nicename;
+            $user_url = "/{$ordered_roles[0]}/{$nicename}";
         }
 
         $avatar_url = get_avatar_url($id, ['size' => 384]);
 
         $user = array(
             'id' => $id,
-            'full_name' => "{$user_data->first_name} {$user_data->last_name}",
-            'email' => $user_data->user_email,
+            'full_name' => $full_name,
+            'email' => $email,
             'bio' => get_the_author_meta('description', $id),
-            'user_url' => "/author/{$user_data->user_nicename}",
+            'role' => $role,
+            'user_url' => $user_url,
             'avatar_url' => $avatar_url == false ? '' : $avatar_url,
         );
 
         return $user;
+    }
+
+    public function getUserBySlug($url)
+    {
+        $urlArray = $this->router->getURLArray($url);
+        $role = $urlArray[0];
+        $slug = $urlArray[1];
+        $user_data = get_user_by('slug', $slug);
+
+        if ($user_data == false) {
+            return '';
+        }
+
+        $id = $user_data->ID;
+        $full_name = "{$user_data->first_name} {$user_data->last_name}";
+        $email = $user_data->user_email;
+        $ordered_roles = $this->roles->getOrderedRoles($user_data->roles);
+        $roles = $this->roles->getRoleDisplayNames($ordered_roles);
+        $role = $roles[0];
+        $nicename = $user_data->user_nicename;
+        $user_url = "/{$role[0]}/{$nicename}";
+
+        foreach ($roles as $user_role) {
+            if ($user_role == $role) {
+                $user_url = "/{$role}/{$nicename}";
+            }
+        }
+
+        return $this->getUser($id, $full_name, $email, $role, $user_url);
     }
 
     public function getUsers($args)

@@ -1,4 +1,5 @@
 <?php $search_term = get_search_query(); ?>
+
 <section class="search">
 
 	<?php get_template_part('includes/part', 'search-bar'); ?>

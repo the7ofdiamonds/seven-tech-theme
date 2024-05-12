@@ -10,8 +10,6 @@
 
             foreach ($categories as $category) {
                 $termlink = get_term_link($category->term_id);
-                error_log(print_r($termlink, true));
-
         ?>
                 <button class="tax-term" onclick="window.location.href='<?php echo esc_url($termlink) ?>'">
                     <h3><?php echo $category->name; ?></h3>
