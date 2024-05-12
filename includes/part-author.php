@@ -1,51 +1,28 @@
-<div class="user-card card">
+<?php
+use SEVEN_TECH\User\User;
 
-    <div class="left">
-        <div class="user-role">
+$user = (new User)->getUser($post->post_author);
 
-            <h4><?php
-                $author = get_userdata($post->post_author);
-                $authorRoles = $author->roles;
+$user_url = $user['user_url'];
+$avatar_url = $user['avatar_url'];
+$full_name = $user['full_name'];
+$email = $user['email'];
+?>
 
-                foreach ($authorRoles as $roles) {
-                    echo ucfirst($roles);
-                }
-                ?></h4>
-        </div>
-
-        <div class="user-pic">
-
-            <a href="<?php echo get_author_posts_url($post->post_author); ?>">
-                <?php echo get_avatar($post->post_author) ?>
-            </a>
-        </div>
-
-        <div class="user-name">
-
-            <h3><?php
-                $firstName = get_the_author_meta('user_firstname', $post->post_author);
-                $lastName = get_the_author_meta('user_lastname', $post->post_author);
-
-                echo "$firstName $lastName"
-                ?></h3>
-        </div>
+<div class="member-card card">
+    <div class="member-pic">
+        <a href="<?php echo $user_url; ?>">
+            <img src="<?php echo $avatar_url; ?>" alt="" />
+        </a>
     </div>
 
-    <div class="right">
-        <div class="user-bio">
+    <div class="member-name">
+        <h4 className="title"><?php echo $full_name; ?></h4>
+    </div>
 
-            <p><?php
-                the_author_meta('description', $post->post_author);
-                ?></p>
-        </div>
-
-        <div class="user-contact">
-
-            <button onclick="window.open('mailto:<?php echo get_the_author_meta('email', $post->post_author); ?>')">
-                <h3>Hire
-                    <?php the_author_meta('user_firstname', $post->post_author); ?>
-                </h3>
-            </button>
-        </div>
+    <div class="member-contact">
+        <a href="mailto:<?php echo $email; ?>">
+            <i class="fa fa-envelope fa-fw"></i>
+        </a>
     </div>
 </div>

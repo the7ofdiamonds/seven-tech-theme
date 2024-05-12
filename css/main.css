@@ -16,7 +16,6 @@ h4,
 h5 {
   letter-spacing: 0.25rem;
   margin-right: -0.25rem;
-  margin-bottom: -0.25rem;
   font-weight: unset;
 }
 
@@ -783,6 +782,51 @@ header .rightSide .right-menu {
 
 section.page-404 {
   margin-top: 5rem;
+}
+
+.tax-list {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.tax-list .tax-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.member-card.card {
+  gap: 0.374rem;
+  height: fit-content;
+  padding: 0;
+  min-width: 300px;
+  max-width: 500px;
+}
+.member-card.card .member-role,
+.member-card.card .member-bio,
+.member-card.card .member-contact {
+  width: 100%;
+  padding: 0 0.5rem;
+}
+.member-card.card .member-role h5 {
+  text-transform: capitalize;
+}
+.member-card.card p {
+  text-align: left;
+  height: 100%;
+}
+.member-card.card .member-contact button {
+  background-color: white;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+.member-card.card .member-contact button i {
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,26 +1,10 @@
-<?php
-get_header();
-
-use SEVEN_TECH\Content\Content;
-
-include get_template_directory() . '/Router/Router.php';
-
-$content = new Content;
-
-$page = $_SERVER['REQUEST_URI'];
-
-$pageContent = $content->getPageContent($page);
-$title = $pageContent['title'];
-$pageContentArray = $pageContent['content'];
-?>
+<?php get_header(); ?>
 
 <section class="post">
 
-    <h2 class="post-name title"><?php echo $title; ?></h2>
+    <h2 class="post-name title"><?php the_title(); ?></h2>
 
-    <?php foreach ($pageContentArray as $content) : ?>
-        <?php echo $content; ?>
-    <?php endforeach; ?>
+    <?php get_template_part('includes/part', 'content'); ?>
 
     <?php get_template_part('includes/part', 'tag-list'); ?>
 

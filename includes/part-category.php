@@ -1,19 +1,24 @@
-<div class="post-category">
-    <?php
-    global $post;
+<?php
+global $post;
 
-    $terms = get_the_terms($post->ID, 'category');
+$terms = get_the_terms($post->ID, 'category');
 
-    if (!empty($terms) && !is_wp_error($terms)) :
-        foreach ($terms as $term) :
-            $termlink = get_term_link($term);
-            if (!is_wp_error($termlink)) :
+if (is_array($terms)) : ?>
+
+    <div class="tax-list">
+
+        <h4 class="title">categories</h4>
+
+        <div class="tax-row">
+            <?php foreach ($terms as $term) :
+                $termlink = get_term_link($term);
+                if (!is_wp_error($termlink)) :
             ?>
-                <a class="category-link" href="<?php echo esc_url($termlink); ?>">
-                    <?php echo esc_html($term->name); ?>
-                </a>
+                <button class="tax-term" onclick="window.location.href='<?php echo esc_url($termlink) ?>'">
+                    <h3><?php echo $term->name; ?></h3>
+                </button>
             <?php endif;
-        endforeach;
-    endif;
-    ?>
-</div>
+            endforeach; ?>
+        </div>
+    </div>
+<?php endif;

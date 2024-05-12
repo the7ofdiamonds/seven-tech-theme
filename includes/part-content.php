@@ -1,5 +1,15 @@
-<?php if( have_posts() ): while( have_posts() ): the_post();?>
-	<div class="card content <?php post_class(); ?>" id="post-<?php the_ID(); ?>">
-	<?php the_content();?>
-	</div>
-<?php endwhile; else: endif;?>
+<?php
+
+use SEVEN_TECH\Content\Content;
+
+$content = new Content;
+
+$page = $_SERVER['REQUEST_URI'];
+
+$pageContent = $content->getPageContent($page);
+
+$pageContentArray = $pageContent['content'];
+
+foreach ($pageContentArray as $content) {
+	echo $content;
+}
