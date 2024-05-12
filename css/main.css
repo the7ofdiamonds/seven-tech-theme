@@ -5,6 +5,10 @@
   font-size: 100%;
 }
 
+section.blog {
+  margin: 6rem 0;
+}
+
 h1,
 h2,
 h3,
@@ -487,13 +491,16 @@ main.error {
   align-self: center;
 }
 
-.post .post-card {
+section.post {
+  margin: 6rem 0;
+}
+section.post .post-card {
   min-width: 300px;
 }
-.post .post-card .post-featured-image a {
+section.post .post-card .post-featured-image a {
   font-size: 0;
 }
-.post .post-card .post-featured-image a img {
+section.post .post-card .post-featured-image a img {
   width: 100%;
   max-height: 12.5rem;
 }

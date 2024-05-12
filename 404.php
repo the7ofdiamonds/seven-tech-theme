@@ -9,4 +9,5 @@
         <p>The page you are looking for can not be found use the search bar above to find what you are looking for on this website.</p>
     </div>
 </section>
+
 <?php get_footer(); ?>
