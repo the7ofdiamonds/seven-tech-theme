@@ -3,7 +3,7 @@
 
 	<?php get_template_part('includes/part', 'search-bar'); ?>
 
-	<h2>Search Results for: <?php echo $search_term; ?></h2>
+	<h2 class="title">Search Results for: <span><?php echo $search_term; ?></span></h2>
 
 	<?php
 	$args = array(

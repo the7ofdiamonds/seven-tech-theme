@@ -399,6 +399,9 @@ footer .legal {
   text-align: center;
   text-transform: uppercase;
 }
+.title span {
+  text-transform: lowercase;
+}
 
 .photo-link {
   font-size: 0;
@@ -570,6 +573,10 @@ label {
 
 .input-error {
   color: red;
+}
+
+section.search {
+  margin: 6rem 0;
 }
 
 .search-form {
@@ -803,13 +810,13 @@ header .rightSide .right-menu {
 }
 
 section.page-404 {
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
 .tax-list {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
 }
@@ -849,6 +856,25 @@ section.page-404 {
 }
 .member-card.card .member-contact button i {
   color: black;
+}
+
+section.page {
+  margin: 6rem 0;
+}
+
+.author-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.author-list .author-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=main.css.map */

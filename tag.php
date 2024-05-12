@@ -3,7 +3,7 @@
 <section class="tags">
 
     <h2 class="title">
-        Matches for the tag: <?php echo single_tag_title('', false); ?>
+        Matches for the tag: <span><?php echo single_tag_title('', false); ?></span>
     </h2>
 
     <?php
