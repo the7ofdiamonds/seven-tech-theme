@@ -6,10 +6,12 @@ $content = new Content;
 
 $page = $_SERVER['REQUEST_URI'];
 
-$pageContent = $content->getPageContent($page);
+$pageContent = $content->getContent($page);
 
-$pageContentArray = $pageContent['content'];
+if (!empty($pageContent)) {
+	$pageContentArray = $pageContent['content'];
 
-foreach ($pageContentArray as $content) {
-	echo $content;
+	foreach ($pageContentArray as $content) {
+		echo $content;
+	}
 }

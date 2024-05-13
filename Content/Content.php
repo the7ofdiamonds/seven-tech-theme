@@ -71,7 +71,7 @@ class Content
         return $contentArray;
     }
 
-    function getPageContent($page_slug, $post_type = ['post', 'page'])
+    function getContent($page_slug, $post_type = ['post', 'page'])
     {
         try {
             $parts = $this->router->getURLArray($page_slug);

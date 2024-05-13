@@ -677,6 +677,22 @@ section.author div.author .author-info {
   justify-content: center;
   gap: 1.5rem;
 }
+section.author div.author .author-info .author-roles-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 1.5rem;
+}
+section.author div.author .author-info .author-roles-row .title {
+  padding: 0.5em;
+}
+section.author div.author .author-info .author-roles-row h4:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  padding: 0 1rem;
+}
 section.author div.author .author-bio {
   width: fit-content;
 }

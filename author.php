@@ -5,26 +5,44 @@ use SEVEN_TECH\User\User;
 
 $url = $_SERVER['REQUEST_URI'];
 
-$user = (new User)->getUserBySlug($url);
-?>
+$user = (new User)->getUserBySlug($url); ?>
+
+
 <section class="author">
 
-    <h2 class="title"><?php echo $user['full_name']; ?></h2>
+    <?php if (is_array($user)) : ?>
 
-    <div class="author">
-        <div class="author-info">
+        <h2 class="title"><?php echo $user['full_name']; ?></h2>
 
-            <div class="author-pic card">
-                <img src="<?php echo $user['avatar_url']; ?>" />
+        <div class="author">
+            <div class="author-info">
+
+                <div class="author-pic card">
+                    <img src="<?php echo $user['avatar_url']; ?>" />
+                </div>
+
+                <div class="author-roles-row">
+                    <?php foreach ($user['roles'] as $role) : ?>
+                        <h4 class="title">
+                            <?php echo $role; ?>
+                        </h4>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
-            <h4 class="title">author</h4>
+            <div class="author-bio card">
+                <p><?php echo $user['bio']; ?></p>
+            </div>
         </div>
 
-        <div class="author-bio card">
-            <p><?php echo $user['bio']; ?></p>
+    <?php else : ?>
+
+        <div class="card">
+            <p><?php echo $user; ?></p>
         </div>
-    </div>
+
+    <?php endif; ?>
 </section>
+
 
 <?php get_footer(); ?>

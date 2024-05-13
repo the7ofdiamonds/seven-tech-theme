@@ -2,6 +2,8 @@
 
 namespace SEVEN_TECH\User;
 
+use WP_User;
+
 use SEVEN_TECH\Router\Router;
 use SEVEN_TECH\Roles\Roles;
 
@@ -16,9 +18,9 @@ class User
         $this->roles = new Roles;
     }
 
-    public function getUser($id, $full_name = '', $email = '', $role = '', $user_url = '')
+    public function getUser($id, $full_name = '', $email = '', $roles = '', $user_url = '')
     {
-        if (empty($full_name) || empty($email) || empty($role) || empty($user_url)) {
+        if (empty($full_name) || empty($email) || !is_array($roles) || empty($user_url)) {
             $user_data = get_userdata($id);
 
             if ($user_data == false) {
@@ -29,8 +31,6 @@ class User
             $email = $user_data->user_email;
             $ordered_roles = $this->roles->getOrderedRoles($user_data->roles);
             $roles = $this->roles->getRoleDisplayNames($ordered_roles);
-
-            $role = $roles[0];
             $nicename = $user_data->user_nicename;
             $user_url = "/{$ordered_roles[0]}/{$nicename}";
         }
@@ -42,7 +42,7 @@ class User
             'full_name' => $full_name,
             'email' => $email,
             'bio' => get_the_author_meta('description', $id),
-            'role' => $role,
+            'roles' => $roles,
             'user_url' => $user_url,
             'avatar_url' => $avatar_url == false ? '' : $avatar_url,
         );
@@ -58,7 +58,7 @@ class User
         $user_data = get_user_by('slug', $slug);
 
         if ($user_data == false) {
-            return '';
+            return "This user could not be found.";
         }
 
         $id = $user_data->ID;
@@ -66,17 +66,22 @@ class User
         $email = $user_data->user_email;
         $ordered_roles = $this->roles->getOrderedRoles($user_data->roles);
         $roles = $this->roles->getRoleDisplayNames($ordered_roles);
-        $role = $roles[0];
         $nicename = $user_data->user_nicename;
-        $user_url = "/{$role[0]}/{$nicename}";
 
-        foreach ($roles as $user_role) {
+        $user_url = "";
+
+        foreach ($ordered_roles as $user_role) {
             if ($user_role == $role) {
                 $user_url = "/{$role}/{$nicename}";
+                break;
             }
         }
 
-        return $this->getUser($id, $full_name, $email, $role, $user_url);
+        if (empty($user_url)) {
+            return "This user does not have a role of {$role}";
+        }
+
+        return $this->getUser($id, $full_name, $email, $roles, $user_url);
     }
 
     public function getUsers($args)
@@ -100,5 +105,35 @@ class User
         }
 
         return $users;
+    }
+
+    public function addUserRole($id, $role)
+    {
+        $user = new WP_User($id);
+        $user->add_role($role);
+
+        return $user;
+    }
+
+    public function removeUserRole($id, $role)
+    {
+        $user = new WP_User($id);
+        $user->remove_role($role);
+
+        return $user;
+    }
+
+    public function changeUserNicename($id, $nicename)
+    {
+        $user_data = get_userdata($id);
+        $user_data->user_nicename = $nicename;
+
+        $updated = wp_update_user($user_data);
+
+        if (!is_int($updated)) {
+            return "There has been an error updating User nice name.";
+        }
+
+        return "User nice name has been updated successfully";
     }
 }

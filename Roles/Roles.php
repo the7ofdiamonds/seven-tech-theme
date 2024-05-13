@@ -4,12 +4,9 @@ namespace SEVEN_TECH\Roles;
 
 use Exception;
 
-use WP_QUery;
-
 class Roles
 {
     private $roles;
-    private $roleNames;
 
     public function __construct()
     {
@@ -18,51 +15,57 @@ class Roles
                 'name' => 'administrator',
                 'display_name' => 'Administrator',
                 'capabilities' => [],
-                'order' => 0,
+                'order' => 1,
             ],
             [
                 'name' => 'editor',
                 'display_name' => 'Editor',
                 'capabilities' => [],
-                'order' => 1,
+                'order' => 2,
             ],
             [
                 'name' => 'author',
                 'display_name' => 'Author',
                 'capabilities' => [],
-                'order' => 2,
+                'order' => 3,
             ],
             [
                 'name' => 'contributor',
                 'display_name' => 'Contributor',
                 'capabilities' => [],
-                'order' => 3,
+                'order' => 4,
             ],
             [
                 'name' => 'subscriber',
                 'display_name' => 'Subscriber',
                 'capabilities' => [],
-                'order' => 4,
+                'order' => 5,
             ]
         ];
 
-        $this->roleNames = $this->getRoleNames();
-    }
-
-    public function getRoleNames()
-    {
-        $roleNames = [];
-
-        foreach ($this->roles as $role) {
-            $roleNames[] = $role['name'];
-        };
-
-        return $roleNames;
+        $this->getRoles();
     }
 
     public function getRoles()
     {
-        return $this->roles;
+        $wp_roles = wp_roles()->get_names();
+
+        $roles = [];
+
+        foreach ($wp_roles as $roleKey => $roleValue) {
+            foreach ($this->roles as $role) {
+                if ($roleKey == $role['name'] && $roleValue == $role['display_name']) {
+                    $roles[] = [
+                        'name' => $role['name'],
+                        'display_name' => $role['display_name'],
+                        'capabilities' => [],
+                        'order' => $role['order']
+                    ];
+                }
+            }
+        }
+
+        return $roles;
     }
 
     public function getOrderedRoles($roles)
@@ -73,13 +76,15 @@ class Roles
 
         $order = [];
 
-        foreach ($this->roles as $role) {
+        foreach ($this->getRoles() as $role) {
             $order[] = [$role['name'] => $role['order']];
         }
 
         uksort($roles, function ($a, $b) use ($order) {
             return $order[$a] <=> $order[$b];
         });
+
+        ksort($roles);
 
         return $roles;
     }
@@ -89,7 +94,7 @@ class Roles
         $roleDisplayNames = [];
 
         foreach ($orderedroles as $ordered_role) {
-            foreach ($this->roles as $role) {
+            foreach ($this->getRoles() as $role) {
                 if ($ordered_role == $role['name']) {
                     $roleDisplayNames[] = $role['display_name'];
                 }
