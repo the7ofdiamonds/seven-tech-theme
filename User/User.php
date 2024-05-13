@@ -2,8 +2,6 @@
 
 namespace SEVEN_TECH\User;
 
-use WP_User;
-
 use SEVEN_TECH\Router\Router;
 use SEVEN_TECH\Roles\Roles;
 
@@ -105,35 +103,5 @@ class User
         }
 
         return $users;
-    }
-
-    public function addUserRole($id, $role)
-    {
-        $user = new WP_User($id);
-        $user->add_role($role);
-
-        return $user;
-    }
-
-    public function removeUserRole($id, $role)
-    {
-        $user = new WP_User($id);
-        $user->remove_role($role);
-
-        return $user;
-    }
-
-    public function changeUserNicename($id, $nicename)
-    {
-        $user_data = get_userdata($id);
-        $user_data->user_nicename = $nicename;
-
-        $updated = wp_update_user($user_data);
-
-        if (!is_int($updated)) {
-            return "There has been an error updating User nice name.";
-        }
-
-        return "User nice name has been updated successfully";
     }
 }

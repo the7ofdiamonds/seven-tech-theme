@@ -15,35 +15,33 @@ class Roles
                 'name' => 'administrator',
                 'display_name' => 'Administrator',
                 'capabilities' => [],
-                'order' => 1,
+                'order' => 0,
             ],
             [
                 'name' => 'editor',
                 'display_name' => 'Editor',
                 'capabilities' => [],
-                'order' => 2,
+                'order' => 1,
             ],
             [
                 'name' => 'author',
                 'display_name' => 'Author',
                 'capabilities' => [],
-                'order' => 3,
+                'order' => 2,
             ],
             [
                 'name' => 'contributor',
                 'display_name' => 'Contributor',
                 'capabilities' => [],
-                'order' => 4,
+                'order' => 3,
             ],
             [
                 'name' => 'subscriber',
                 'display_name' => 'Subscriber',
                 'capabilities' => [],
-                'order' => 5,
+                'order' => 4,
             ]
         ];
-
-        $this->getRoles();
     }
 
     public function getRoles()

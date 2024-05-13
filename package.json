@@ -1,4 +1,5 @@
 {
+  "author": "Jamel C. Lyons <jclyonsenterprises@gmail.com>, THE7OFDIAMONDS.TECH",
   "name": "seven-tech-theme",
   "version": "1.0.0",
   "description": "Wordpress Theme",
@@ -11,7 +12,6 @@
     "update-prod": "git push seven-tech-theme production",
     "watch:sass": "sass --watch ./CSS/scss/main.scss ./CSS/main.css"
   },
-  "author": "Jamel C. Lyons <jclyonsenterprises@gmail.com>, THE7OFDIAMONDS.TECH",
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.29.3",
