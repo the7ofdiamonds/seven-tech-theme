@@ -1,7 +1,12 @@
 <?php
-use SEVEN_TECH\User\User;
 
-$user = (new User)->getUser($post->post_author);
+require_once get_template_directory() . '/User/User.php';
+
+use SEVEN_TECH_THEME\User\User;
+
+$usr = new User;
+
+$user = $usr->getUser($post->post_author);
 
 $user_url = $user['user_url'];
 $avatar_url = $user['avatar_url'];

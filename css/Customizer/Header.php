@@ -1,5 +1,5 @@
 <?php
-namespace SEVEN_TECH\CSS\Customizer;
+namespace SEVEN_TECH_THEME\CSS\Customizer;
 
 use WP_Customize_Color_Control;
 

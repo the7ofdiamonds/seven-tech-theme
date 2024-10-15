@@ -1,6 +1,8 @@
 <?php
 
-use SEVEN_TECH\Content\Content;
+require_once get_template_directory() . '/Content/Content.php';
+
+use SEVEN_TECH_THEME\Content\Content;
 
 $content = new Content;
 

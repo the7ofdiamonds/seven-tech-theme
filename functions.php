@@ -1,7 +1,7 @@
 <?php
 
-use SEVEN_TECH\SEVEN_TECH;
+require_once get_template_directory() . '/SEVEN_TECH_THEME.php';
 
-require get_template_directory() . '/SEVEN_TECH.php';
+use SEVEN_TECH_THEME\SEVEN_TECH_THEME;
 
-new SEVEN_TECH;
+new SEVEN_TECH_THEME;

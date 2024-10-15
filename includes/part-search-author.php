@@ -1,5 +1,8 @@
 <?php
-use SEVEN_TECH\User\User;
+
+require_once get_template_directory() . '/User/User.php';
+
+use SEVEN_TECH_THEME\User\User;
 
 $user = new User;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace SEVEN_TECH\CSS;
+namespace SEVEN_TECH_THEME\CSS;
 
-use SEVEN_TECH\CSS\Customizer\Header;
-use SEVEN_TECH\CSS\Customizer\Card;
-use SEVEN_TECH\CSS\Customizer\Buttons;
-use SEVEN_TECH\CSS\Customizer\Font;
-use SEVEN_TECH\CSS\Customizer\Border_Radius;
-use SEVEN_TECH\CSS\Customizer\Customizer;
-use SEVEN_TECH\CSS\Customizer\Shadow;
-use SEVEN_TECH\CSS\Customizer\Footer;
+use SEVEN_TECH_THEME\CSS\Customizer\Header;
+use SEVEN_TECH_THEME\CSS\Customizer\Card;
+use SEVEN_TECH_THEME\CSS\Customizer\Buttons;
+use SEVEN_TECH_THEME\CSS\Customizer\Font;
+use SEVEN_TECH_THEME\CSS\Customizer\Border_Radius;
+use SEVEN_TECH_THEME\CSS\Customizer\Customizer;
+use SEVEN_TECH_THEME\CSS\Customizer\Shadow;
+use SEVEN_TECH_THEME\CSS\Customizer\Footer;
 
 class CSS
 {

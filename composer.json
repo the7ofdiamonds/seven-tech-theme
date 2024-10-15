@@ -19,7 +19,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "SEVEN_TECH\\": ""
+            "SEVEN_TECH_THEME\\": ""
         }
     },
     "config": {

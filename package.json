@@ -5,8 +5,8 @@
   "description": "Wordpress Theme",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel sync watch:sass",
-    "sync": "browser-sync start --proxy 'http://192.168.1.170:8000' --files '**/*.html, **/*.css, **/*.js'",
+    "dev": "npm-run-all --parallel build gulp sync",
+    "sync": "browser-sync start --config browsersync.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-dev": "git push seven-tech-theme development",
     "update-prod": "git push seven-tech-theme production",

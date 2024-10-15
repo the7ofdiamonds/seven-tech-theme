@@ -1,6 +1,6 @@
 <?php
 
-namespace SEVEN_TECH\Menu;
+namespace SEVEN_TECH_THEME\Menu;
 
 class Menu
 {

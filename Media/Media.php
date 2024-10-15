@@ -1,6 +1,6 @@
 <?php
 
-namespace SEVEN_TECH\Media;
+namespace SEVEN_TECH_THEME\Media;
 
 use Exception;
 

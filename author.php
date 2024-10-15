@@ -1,12 +1,16 @@
 <?php
-get_header();
 
-use SEVEN_TECH\User\User;
+require_once get_template_directory() . '/User/User.php';
+
+use SEVEN_TECH_THEME\User\User;
+
+$usr = new User;
+
+get_header();
 
 $url = $_SERVER['REQUEST_URI'];
 
-$user = (new User)->getUserBySlug($url); ?>
-
+$user = $usr->getUserBySlug($url); ?>
 
 <section class="author">
 

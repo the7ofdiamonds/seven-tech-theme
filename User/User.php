@@ -1,9 +1,9 @@
 <?php
 
-namespace SEVEN_TECH\User;
+namespace SEVEN_TECH_THEME\User;
 
-use SEVEN_TECH\Router\Router;
-use SEVEN_TECH\Roles\Roles;
+use SEVEN_TECH_THEME\Router\Router;
+use SEVEN_TECH_THEME\Roles\Roles;
 
 class User
 {

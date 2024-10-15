@@ -1,14 +1,16 @@
 <?php
 
-namespace SEVEN_TECH;
+namespace SEVEN_TECH_THEME;
 
-use SEVEN_TECH\CSS\CSS;
-use SEVEN_TECH\JS\JS;
-use SEVEN_TECH\Menu\Menu;
+define('SEVEN_TECH_THEME', get_template_directory() . '/');
 
-require_once 'vendor/autoload.php';
+require_once SEVEN_TECH_THEME . 'vendor/autoload.php';
 
-class SEVEN_TECH
+use SEVEN_TECH_THEME\CSS\CSS;
+use SEVEN_TECH_THEME\JS\JS;
+use SEVEN_TECH_THEME\Menu\Menu;
+
+class SEVEN_TECH_THEME
 {
     public function __construct()
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace SEVEN_TECH\Content;
+namespace SEVEN_TECH_THEME\Content;
 
 use Exception;
 
-use SEVEN_TECH\Router\Router;
+use SEVEN_TECH_THEME\Router\Router;
 
 class Content
 {

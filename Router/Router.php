@@ -1,6 +1,6 @@
 <?php
 
-namespace SEVEN_TECH\Router;
+namespace SEVEN_TECH_THEME\Router;
 
 class Router
 {
