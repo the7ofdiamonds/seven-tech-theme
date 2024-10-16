@@ -76,7 +76,7 @@ body {
   display: none;
 }
 .header .center {
-  max-width: calc(100% - 4rem);
+  width: 100%;
 }
 .header .right-menu {
   display: none;
@@ -89,9 +89,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 2rem;
   position: relative;
-  right: 1rem;
+  right: 2rem;
 }
 .hamburger h1 {
   position: absolute;
@@ -135,10 +134,6 @@ body {
   header .header {
     justify-content: space-evenly;
   }
-  header .header .leftSide,
-header .header .rightSide {
-    width: 11rem;
-  }
   header .header .leftSide {
     grid-area: LeftSide;
     display: flex;
@@ -167,6 +162,7 @@ header .header .rightSide {
   }
   header .header .leftSide {
     justify-content: start;
+    margin-left: 2rem;
   }
   header .header .leftSide .auth {
     display: none;
@@ -183,6 +179,7 @@ header .header .rightSide {
   }
   header .header .rightSide {
     justify-content: end;
+    margin-right: 2rem;
   }
   header .header .rightSide .hamburger {
     display: none;
@@ -244,7 +241,6 @@ header .header .leftSide,
 header .header .rightSide {
   align-items: center;
   height: 100%;
-  width: 100%;
 }
 header .header .left-menu {
   display: none;
@@ -270,7 +266,6 @@ header .header .rightSide {
   display: flex;
   justify-content: end;
   position: relative;
-  width: 100%;
 }
 header nav.dropdown {
   display: none;
@@ -742,10 +737,8 @@ details summary {
   align-items: center;
 }
 details summary::after {
-  content: "►";
-  /* Unicode arrow symbol */
-  margin-left: 5px;
-  /* Adjust the value as needed */
+  content: "►"; /* Unicode arrow symbol */
+  margin-left: 5px; /* Adjust the value as needed */
 }
 details summary::after {
   display: none;

@@ -2,13 +2,6 @@
   header {
     .header {
       justify-content: space-evenly;
-      // grid-template-areas: 'LeftSide Center RightSide';
-      // grid-template-columns: 150px auto 150px;
-
-      .leftSide,
-      .rightSide {
-        width: 11rem;
-      }
 
       .leftSide {
         grid-area: LeftSide;

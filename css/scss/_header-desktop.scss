@@ -14,7 +14,8 @@
   
         .leftSide {
           justify-content: start;
-  
+          margin-left: 2rem;
+
           .auth {
             display: none;
           }
@@ -35,7 +36,8 @@
   
         .rightSide {
           justify-content: end;
-  
+          margin-right: 2rem;
+
           .hamburger {
             display: none;
           }
